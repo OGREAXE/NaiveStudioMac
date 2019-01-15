@@ -224,92 +224,23 @@
     self.outputView.string = [[[self.outputView.string stringByAppendingString:str]stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"] stringByAppendingString:@"\n"];
 }
 
-#pragma mark shortcut input
--(IBAction)didTapFor:(id)sender{
-//    [self.textManager insertCodeTemplate:NCCodeTemplateFor];
-//    [self showFastInputViewController:NCFastInputTypeFor];
-}
-
--(IBAction)didTapWhile:(id)sender{
-//    [self.textManager insertCodeTemplate:NCCodeTemplateWhile];
-//    [self showFastInputViewController:NCFastInputTypeWhile];
-}
--(IBAction)didTapIf:(id)sender{
-//    [self.textManager insertCodeTemplate:NCCodeTemplateIf];
-//    [self showFastInputViewController:NCFastInputTypeIf];
-}
--(IBAction)didTapIfElse:(id)sender{
-//    [self.textManager insertCodeTemplate:NCCodeTemplateIfElse];
-//    [self showFastInputViewController:NCFastInputTypeIfElse];
-}
--(IBAction)didTapFunction:(id)sender{
-//    [self.textManager insertCodeTemplate:NCCodeTemplateFunc];
-//    [self showFastInputViewController:NCFastInputTypeFunc];
-}
-//{
--(IBAction)didTapPar1:(id)sender{
-    [self.textManager insertText:@"\"\""];
-}
-//(
--(IBAction)didTapPar2:(id)sender{
-    
-}
-
 -(IBAction)didTapCompile:(id)sender{
-    NSString * codeText = self.textView.string;
+    [self saveCurrentContent];
     
+    NSString * codeText = self.textView.string;
+    codeText = [self filterTextAsLegalCode:codeText];
+    
+    __weak typeof(self) weakSelf = self;
     [[NCRemoteManager sharedManager] sendCommandText:codeText executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
-        self.outputView.string = [NSString stringWithFormat:@"%@\n%@",self.outputView.string,response];
+        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
     }];
     
 }
 
-/*
--(void)didLongPressCompile:(UILongPressGestureRecognizer*)gestureRecognizer{
-    if ([gestureRecognizer state] == UIGestureRecognizerStateEnded) {
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Run Action" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        
-        
-        __weak UIAlertController * wAlert = alert;
-        
-        UIAlertAction * actionDelay = [UIAlertAction actionWithTitle:@"Run after dismiss" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                [self.interpreter runWithDataSource:self.textViewDataSource];
-            }];
-        }];
-        
-        UIAlertAction * actionDelay5sec = [UIAlertAction actionWithTitle:@"Run in 5 seconds" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.interpreter runWithDataSource:self.textViewDataSource];
-                });
-                
-            }];
-        }];
-        
-        UIAlertAction * actionDelay15sec = [UIAlertAction actionWithTitle:@"Run in 15 seconds" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.interpreter runWithDataSource:self.textViewDataSource];
-                });
-                
-            }];
-        }];
-        
-        UIAlertAction * actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [wAlert dismissViewControllerAnimated:YES completion:nil];
-        }];
-        
-        [alert addAction:actionDelay];
-        [alert addAction:actionDelay5sec];
-        [alert addAction:actionDelay15sec];
-        [alert addAction:actionCancel];
-        
-        [self presentViewController:alert animated:YES completion:^{
-            
-        }];
-    }
-}*/
+-(NSString*)filterTextAsLegalCode:(NSString*)codeText{
+    codeText = [codeText stringByReplacingOccurrencesOfString:@"“" withString:@"\""];
+    return [codeText stringByReplacingOccurrencesOfString:@"”" withString:@"\""];
+}
 
 -(IBAction)didTapUndo:(id)sender{
     NSUndoManager * manager = self.textView.undoManager;

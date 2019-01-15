@@ -43,7 +43,7 @@
     self = [super init];
     if (self) {
         self.type = NCNetworkDataTypeString;
-        self.data = [string dataUsingEncoding:NSUTF8StringEncoding];
+        self.data = [[string copy] dataUsingEncoding:NSUTF8StringEncoding];
     }
     return self;
 }

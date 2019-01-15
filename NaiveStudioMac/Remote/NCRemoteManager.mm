@@ -127,7 +127,7 @@ static NCRemoteManager *_instance = nil;
                 NSString * str = ncData.string;
                 if (str) {
                     self.commandExecutionHandler(str, nil);
-                    self.commandExecutionHandler = nil;
+//                    self.commandExecutionHandler = nil;
                 }
             }
         }
@@ -141,6 +141,8 @@ static NCRemoteManager *_instance = nil;
         default:
             break;
     }
+    
+    [self.socket readDataWithTimeout:- 1 tag:0];
 }
 
 -(NSString*)connectedHost{
