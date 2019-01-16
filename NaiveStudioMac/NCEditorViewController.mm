@@ -47,8 +47,10 @@
 //@property (weak, nonatomic) IBOutlet  UIButton * runButton;
 
 @property (nonatomic)  NSTextView * textView;
+@property (nonatomic)  NSScrollView * textViewScrollView;
 
 @property (nonatomic)  NSTextView * outputView;
+@property (nonatomic)  NSScrollView * outputViewScrollView;
 
 @property (nonatomic)  NSTextField * titleTextField;
 
@@ -232,7 +234,10 @@
     
     __weak typeof(self) weakSelf = self;
     [[NCRemoteManager sharedManager] sendCommandText:codeText executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
-        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
+//        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
+        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", response]];
+        [weakSelf.outputView.textStorage appendAttributedString:attrStr];
+        [weakSelf.outputView scrollToEndOfDocument:nil];
     }];
     
 }

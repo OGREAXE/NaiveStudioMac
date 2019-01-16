@@ -18,6 +18,8 @@ typedef NS_ENUM(NSInteger, NCNetworkDataType){
     NCNetworkDataTypeImage,
 };
 
+#define DATA_FRAGMENT_DELIMITER [GCDAsyncSocket CRLFData]
+
 @interface NCNetworkData : NSObject<NSCoding>
 
 @property (nonatomic) NCNetworkDataType type;

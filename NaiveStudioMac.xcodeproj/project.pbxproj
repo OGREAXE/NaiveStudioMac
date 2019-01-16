@@ -17,7 +17,6 @@
 		F366D8CC21E7292D001824AE /* NCAddNewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D87C21E7292A001824AE /* NCAddNewFileViewController.m */; };
 		F366D8CE21E7292D001824AE /* NCInterpreterController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D88021E7292B001824AE /* NCInterpreterController.mm */; };
 		F366D8D021E7292D001824AE /* NCRemoteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D89A21E7292B001824AE /* NCRemoteManager.mm */; };
-		F366D8D121E7292D001824AE /* NCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D89D21E7292B001824AE /* NCServer.m */; };
 		F366D8D221E7292D001824AE /* NSView+Avatar.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8A121E7292B001824AE /* NSView+Avatar.m */; };
 		F366D8D321E7292D001824AE /* NCEditorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D8AD21E7292B001824AE /* NCEditorViewController.mm */; };
 		F366D8D421E7292D001824AE /* NCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8AE21E7292B001824AE /* NCConsole.m */; };
@@ -48,6 +47,9 @@
 		F3EAAC7A21ED85CA00D7CBA4 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6F21ED85C900D7CBA4 /* DDFileLogger.m */; };
 		F3EAAC7D21ED8CFB00D7CBA4 /* NCConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC7C21ED8CFB00D7CBA4 /* NCConnectionViewController.m */; };
 		F3EAAC8021EDC62F00D7CBA4 /* NCNetworkData.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC7F21EDC62F00D7CBA4 /* NCNetworkData.m */; };
+		F3EAACC121EEC49900D7CBA4 /* NCCodeEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */; };
+		F3EAACC221EEC49900D7CBA4 /* NCCodeEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */; };
+		F3EAACD921EF2E4400D7CBA4 /* SYFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +84,6 @@
 		F366D89721E7292B001824AE /* NCCodeTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCCodeTemplate.h; sourceTree = "<group>"; };
 		F366D89821E7292B001824AE /* NCInterpreterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCInterpreterController.h; sourceTree = "<group>"; };
 		F366D89A21E7292B001824AE /* NCRemoteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCRemoteManager.mm; sourceTree = "<group>"; };
-		F366D89C21E7292B001824AE /* NCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCServer.h; sourceTree = "<group>"; };
-		F366D89D21E7292B001824AE /* NCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCServer.m; sourceTree = "<group>"; };
 		F366D89E21E7292B001824AE /* NCRemoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCRemoteManager.h; sourceTree = "<group>"; };
 		F366D8A021E7292B001824AE /* NSView+Avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Avatar.h"; sourceTree = "<group>"; };
 		F366D8A121E7292B001824AE /* NSView+Avatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Avatar.m"; sourceTree = "<group>"; };
@@ -155,6 +155,11 @@
 		F3EAAC7C21ED8CFB00D7CBA4 /* NCConnectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCConnectionViewController.m; sourceTree = "<group>"; };
 		F3EAAC7E21EDC62F00D7CBA4 /* NCNetworkData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCNetworkData.h; sourceTree = "<group>"; };
 		F3EAAC7F21EDC62F00D7CBA4 /* NCNetworkData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCNetworkData.m; sourceTree = "<group>"; };
+		F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NCCodeEditViewController.xib; sourceTree = "<group>"; };
+		F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCCodeEditViewController.m; sourceTree = "<group>"; };
+		F3EAACC021EEC49900D7CBA4 /* NCCodeEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCCodeEditViewController.h; sourceTree = "<group>"; };
+		F3EAACD721EF2E4400D7CBA4 /* SYFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFlatButton.h; sourceTree = "<group>"; };
+		F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYFlatButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +231,9 @@
 				F366D87A21E7292A001824AE /* NCMainViewController.m */,
 				F366D89621E7292B001824AE /* NCProjectContentViewController.h */,
 				F366D8BC21E7292C001824AE /* NCProjectContentViewController.m */,
+				F3EAACC021EEC49900D7CBA4 /* NCCodeEditViewController.h */,
+				F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */,
+				F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */,
 				F366D89421E7292B001824AE /* NCProjectTableViewCell.h */,
 				F366D8BD21E7292C001824AE /* NCProjectTableViewCell.m */,
 				F366D8C221E7292D001824AE /* NCTestCenter.h */,
@@ -277,6 +285,7 @@
 		F366D88221E7292B001824AE /* thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				F3EAACD621EF2E4400D7CBA4 /* SYFlatButton */,
 				F3EAAC5621ED85C900D7CBA4 /* CocoaAsyncSocket */,
 			);
 			path = thirdparty;
@@ -287,21 +296,11 @@
 			children = (
 				F366D89E21E7292B001824AE /* NCRemoteManager.h */,
 				F366D89A21E7292B001824AE /* NCRemoteManager.mm */,
-				F366D89B21E7292B001824AE /* Server */,
 				F366D89F21E7292B001824AE /* Avatar */,
 				F3EAAC7E21EDC62F00D7CBA4 /* NCNetworkData.h */,
 				F3EAAC7F21EDC62F00D7CBA4 /* NCNetworkData.m */,
 			);
 			path = Remote;
-			sourceTree = "<group>";
-		};
-		F366D89B21E7292B001824AE /* Server */ = {
-			isa = PBXGroup;
-			children = (
-				F366D89C21E7292B001824AE /* NCServer.h */,
-				F366D89D21E7292B001824AE /* NCServer.m */,
-			);
-			path = Server;
 			sourceTree = "<group>";
 		};
 		F366D89F21E7292B001824AE /* Avatar */ = {
@@ -411,6 +410,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F3EAACD621EF2E4400D7CBA4 /* SYFlatButton */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAACD721EF2E4400D7CBA4 /* SYFlatButton.h */,
+				F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */,
+			);
+			path = SYFlatButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -493,6 +501,7 @@
 			files = (
 				F366D8D821E7292D001824AE /* image.xcassets in Resources */,
 				F366D85F21E727FF001824AE /* Assets.xcassets in Resources */,
+				F3EAACC121EEC49900D7CBA4 /* NCCodeEditViewController.xib in Resources */,
 				F366D86221E727FF001824AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3EAACD921EF2E4400D7CBA4 /* SYFlatButton.m in Sources */,
 				F366D8D421E7292D001824AE /* NCConsole.m in Sources */,
 				F366D8DD21E7292D001824AE /* NCDataSource.m in Sources */,
 				F366D8DA21E7292D001824AE /* NCProjectContentViewController.m in Sources */,
@@ -519,6 +529,7 @@
 				F3EAAC7621ED85CA00D7CBA4 /* DDDispatchQueueLogFormatter.m in Sources */,
 				F3EAAC7321ED85CA00D7CBA4 /* DDTTYLogger.m in Sources */,
 				F366D8E721E72D1A001824AE /* Common.mm in Sources */,
+				F3EAACC221EEC49900D7CBA4 /* NCCodeEditViewController.m in Sources */,
 				F3EAAC7221ED85C900D7CBA4 /* GCDAsyncSocket.m in Sources */,
 				F366D86521E727FF001824AE /* main.m in Sources */,
 				F366D8D021E7292D001824AE /* NCRemoteManager.mm in Sources */,
@@ -535,7 +546,6 @@
 				F3EAAC7721ED85CA00D7CBA4 /* DDMultiFormatter.m in Sources */,
 				F366D8D321E7292D001824AE /* NCEditorViewController.mm in Sources */,
 				F366D8D521E7292D001824AE /* NCProject.m in Sources */,
-				F366D8D121E7292D001824AE /* NCServer.m in Sources */,
 				F3EAAC7A21ED85CA00D7CBA4 /* DDFileLogger.m in Sources */,
 				F366D8DC21E7292D001824AE /* NSViewController+NCExtension.m in Sources */,
 				F366D8D921E7292D001824AE /* NCMainViewCell.m in Sources */,

@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define kConnectionStatusChangedNotificationName @"kConnectionStatusChangedNotificationName"
+
 @class NCRemoteManager;
 
 @protocol NCRemoteManagerDelegate <NSObject>

@@ -12,6 +12,9 @@
 #import "NCProjectTableViewCell.h"
 #import "NCAddNewFileViewController.h"
 #import "Common.h"
+#import "NCCodeEditViewController.h"
+#import "NCRemoteManager.h"
+#import "NCConnectionViewController.h"
 
 @interface NCRowView : NSTableRowView
 @property (nonatomic) NSTextField * textField;
@@ -45,6 +48,8 @@
 
 @property  (nonatomic) NSTableView * tableView;
 
+@property  (nonatomic) NSTextField * networkStatusTextField;
+
 @property (nonatomic) NCInterpreterController * interpreter;
 
 @end
@@ -77,29 +82,24 @@
     
     self.title= self.project.name;
     
-//    UIButton * addNewButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    addNewButton.imageView.image = [UIImage imageNamed:@"add"];
-//    [addNewButton addTarget:self action:@selector(didTapAddNew) forControlEvents:UIControlEventTouchUpInside];
-//
-//    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:addNewButton];
-//    self.navigationItem.rightBarButtonItems = @[item];
-    
-//    UIBarButtonItem *btn0 = [[UIBarButtonItem alloc] initWithTitle:@"new"
-//                                                             style:UIBarButtonItemStylePlain
-//                                                            target:self
-//                                                            action:@selector(didTapAddNew)];
-//    //btn0.image = [UIImage imageNamed:@"add" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
-//    self.navigationItem.rightBarButtonItems = @[btn0];
-//
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.tableView.allowsMultipleSelectionDuringEditing = NO;
-//
     NSButton * addNewButton = [NSButton buttonWithTitle:@"new" target:self action:@selector(didTapAddNew)];
     addNewButton.frame = CGRectMake(0, 0, 600, 60);
     [self.view addSubview:addNewButton];
     
+    NSTextField * networkStatusTextField = [[NSTextField alloc] init];
+    networkStatusTextField.frame = CGRectMake(0, 0, 600, 60);
+    networkStatusTextField.editable = NO;
+    networkStatusTextField.font = [NSFont systemFontOfSize:20];
+    [self.view addSubview:networkStatusTextField];
+    self.networkStatusTextField = networkStatusTextField;
+    [self updateNetworkStatus];
+    NSClickGestureRecognizer *click = [[NSClickGestureRecognizer alloc] initWithTarget:self action:@selector(networkTextFieldClicked)];
+    [self.networkStatusTextField addGestureRecognizer:click];
+    
     self.interpreter = [[NCInterpreterController alloc] init];
     self.interpreter.project = self.project;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionChanged) name:kConnectionStatusChangedNotificationName object:nil];
 }
 
 -(void)viewWillAppear{
@@ -119,18 +119,34 @@
 -(void)viewDidLayout{
     [super viewDidLayout];
     
-    CGFloat scrollViewHeight = 60;
-    self.scrollView.frame = CGRectMake(0, scrollViewHeight, 600, self.view.frame.size.height - scrollViewHeight);
+    CGFloat bottomBarViewHeight = 60;
+    CGFloat topBarViewHeight = 30;
+    self.scrollView.frame = CGRectMake(0, bottomBarViewHeight, 600, self.view.frame.size.height - bottomBarViewHeight - topBarViewHeight);
+    self.networkStatusTextField.frame = CGRectMake(0, CGRectGetMaxY(self.scrollView.frame), 600, topBarViewHeight);
 }
 
-//- (void)scrollWheel:(NSEvent *)theEvent {
-//    // If scroll is disabled, send action to next responder
-//    [super scrollWheel:theEvent];
-//}
+-(void)connectionChanged{
+    [self updateNetworkStatus];
+}
 
-//- (NSInteger)tableView:(NSTableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return self.project.sourceFiles.count;
-//}
+-(void)networkTextFieldClicked{
+    if (![NCRemoteManager sharedManager]. isConnected) {
+        NCConnectionViewController * controller = [[NCConnectionViewController alloc] init];
+        
+        [self presentViewControllerAsSheet:controller];
+    }
+}
+
+-(void)updateNetworkStatus{
+    if ([NCRemoteManager sharedManager] .isConnected) {
+        self.networkStatusTextField.stringValue = [NSString stringWithFormat: @"connected %@", [NCRemoteManager sharedManager].connectedHost];
+        self.networkStatusTextField.textColor = [NSColor blueColor];
+    }
+    else {
+        self.networkStatusTextField.stringValue = @"disconnected. click to connect";
+        self.networkStatusTextField.textColor = [NSColor redColor];
+    }
+}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     return self.project.sourceFiles.count;
@@ -203,41 +219,17 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     
     NSTableView *tableView = notification.object;
-    NCEditorViewController * editVC = [[NCEditorViewController alloc] init];
     
-//    editVC.mode = self.mode;
+    NCCodeEditViewController * editVC = [[NCCodeEditViewController alloc] initWithNibName:@"NCCodeEditViewController" bundle:nil];
+    
+    //    editVC.mode = self.mode;
+    editVC.interpreter = self.interpreter;
     editVC.sourceFile = self.project.sourceFiles[tableView.selectedRow];
     editVC.interpreter = self.interpreter;
     editVC.project = self.project;
     
     self.view.window.contentViewController = editVC;
 }
-
-
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // Return YES if you want the specified item to be editable.
-//    return YES;
-//}
-//
-//// Override to support editing the table view.
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        //add code here for when you hit delete
-//
-//        NCSourceFile * file = self.project.sourceFiles[indexPath.row] ;
-//
-//        [self ShowAlert:[NSString stringWithFormat:@"Are you sure you wnat to delete file \"%@?\"",file.filename] comfirmHandler:^{
-//            NSError * error = nil;
-//            [[NCProjectManager sharedManager] removeSourceFile:file project:self.project error:&error];
-//            if (error) {
-//                NSLog(@"error remove file %@,: %@",file.filename, error);
-//            }
-//            else {
-//                [self.tableView reloadData];
-//            }
-//        }];
-//    }
-//}
 
 -(void)didTapAddNew{
 //    NCAddNewFileViewController * controller = [[UIStoryboard storyboardWithName:MainStoryBoardName bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:NSStringFromClass([NCAddNewFileViewController class])];
@@ -256,7 +248,8 @@
 
 -(void)addNewFileViewController:(NCAddNewFileViewController*)addNewController didAddFile:(NCSourceFile*)file{
     
-    NCEditorViewController * editVC = [[NCEditorViewController alloc] init];
+
+    NCCodeEditViewController * editVC = [[NCCodeEditViewController alloc] initWithNibName:@"NCCodeEditViewController" bundle:nil];
     
     //    editVC.mode = self.mode;
     editVC.interpreter = self.interpreter;

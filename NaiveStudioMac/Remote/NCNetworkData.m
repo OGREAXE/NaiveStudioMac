@@ -12,6 +12,8 @@
 #import <AppKit/AppKit.h>
 #endif
 
+#import "GCDAsyncSocket.h"
+
 @implementation NCNetworkData
 
 #if TARGET_OS_IPHONE
@@ -42,6 +44,9 @@
 -(instancetype)initWithString:(NSString*)string{
     self = [super init];
     if (self) {
+        NSString * delimStr = [[NSString alloc] initWithData:DATA_FRAGMENT_DELIMITER encoding:NSUTF8StringEncoding];
+        
+        string = [string stringByReplacingOccurrencesOfString:delimStr withString:@"\n"];
         self.type = NCNetworkDataTypeString;
         self.data = [[string copy] dataUsingEncoding:NSUTF8StringEncoding];
     }

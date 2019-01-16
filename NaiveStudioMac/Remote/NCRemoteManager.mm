@@ -24,6 +24,8 @@ typedef void (^ConnectionHandler)(BOOL result, NSError *error);
 
 @property (nonatomic) ConnectionHandler connectionHandler;
 
+//@property (nonatomic) NSData * dataFragment;
+
 
 @end
 
@@ -59,11 +61,15 @@ static NCRemoteManager *_instance = nil;
 -(void)sendCommandText:(NSString*)commandText executionResult:(void (^)(id response, NSError *error))executionResultHandler{
     NCNetworkData * networkData = [[NCNetworkData alloc] initWithString:commandText];
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:networkData];
-//    NSData * data = [commandText dataUsingEncoding:NSUTF8StringEncoding];
-    [self.socket writeData:data withTimeout:10 tag:TAG_TEXT];
+    NSMutableData * dataWithDelimiter = [[NSMutableData alloc] initWithData:data];
+    [dataWithDelimiter appendData:DATA_FRAGMENT_DELIMITER];
+    
+    [self.socket writeData:dataWithDelimiter withTimeout:10 tag:TAG_TEXT];
+    
     self.commandExecutionHandler = executionResultHandler;
     
-    [self.socket readDataWithTimeout:- 1 tag:0];
+//    [self.socket readDataWithTimeout:- 1 tag:0];
+    [self.socket readDataToData:DATA_FRAGMENT_DELIMITER withTimeout:-1 tag:0];
 }
 
 #define CONNECT_PORT 12345
@@ -101,6 +107,8 @@ static NCRemoteManager *_instance = nil;
         self.connectionHandler(YES, nil);
         self.connectionHandler = nil;
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kConnectionStatusChangedNotificationName object:nil];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(nullable NSError *)err{
@@ -109,6 +117,8 @@ static NCRemoteManager *_instance = nil;
         self.connectionHandler(NO, err);
         self.connectionHandler = nil;
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kConnectionStatusChangedNotificationName object:nil];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag{
@@ -117,32 +127,58 @@ static NCRemoteManager *_instance = nil;
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
     
-    NCNetworkData * ncData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    switch (ncData.type) {
-        case NCNetworkDataTypeString:
-        {
-            LOG_REMOTE(@"didReadData:**************\n%@",ncData.string);
-            
-            if (self.commandExecutionHandler) {
-                NSString * str = ncData.string;
-                if (str) {
-                    self.commandExecutionHandler(str, nil);
-//                    self.commandExecutionHandler = nil;
+    NSData * dataWithoutDelim = [data subdataWithRange:NSMakeRange(0, data.length-2)];
+    NCNetworkData * ncData = [NSKeyedUnarchiver unarchiveObjectWithData:dataWithoutDelim];
+    
+//    if (self.dataFragment) {
+//        NSMutableData * combineData = [NSMutableData dataWithData:self.dataFragment];
+//        [combineData appendData:data];
+//        ncData = [NSKeyedUnarchiver unarchiveObjectWithData:combineData];
+//
+//        if (!ncData) {
+//            self.dataFragment = combineData;
+//        }
+//        else {
+//            self.dataFragment = nil;
+//        }
+//    }
+//    else {
+//        ncData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    }
+//
+//
+//    if (!ncData) {
+//        self.dataFragment = data;
+//    }
+    
+    if(ncData){
+        switch (ncData.type) {
+            case NCNetworkDataTypeString:
+            {
+                LOG_REMOTE(@"didReadData:**************\n%@",ncData.string);
+                
+                if (self.commandExecutionHandler) {
+                    NSString * str = ncData.string;
+                    if (str) {
+                        self.commandExecutionHandler(str, nil);
+    //                    self.commandExecutionHandler = nil;
+                    }
                 }
             }
+                break;
+            case NCNetworkDataTypeImage:
+            {
+                LOG_REMOTE(@"didReadData:image");
+                //todo image
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case NCNetworkDataTypeImage:
-        {
-            LOG_REMOTE(@"didReadData:image");
-            //todo image
-        }
-            break;
-        default:
-            break;
     }
     
-    [self.socket readDataWithTimeout:- 1 tag:0];
+//    [self.socket readDataWithTimeout:- 1 tag:0];
+    [self.socket readDataToData:DATA_FRAGMENT_DELIMITER withTimeout:-1 tag:0];
 }
 
 -(NSString*)connectedHost{
