@@ -1,0 +1,816 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F366D85A21E727FE001824AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D85921E727FE001824AE /* AppDelegate.m */; };
+		F366D85F21E727FF001824AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F366D85E21E727FF001824AE /* Assets.xcassets */; };
+		F366D86221E727FF001824AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F366D86021E727FF001824AE /* Main.storyboard */; };
+		F366D86521E727FF001824AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D86421E727FF001824AE /* main.m */; };
+		F366D87021E727FF001824AE /* NaiveStudioMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D86F21E727FF001824AE /* NaiveStudioMacTests.m */; };
+		F366D8CA21E7292D001824AE /* NCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D87A21E7292A001824AE /* NCMainViewController.m */; };
+		F366D8CB21E7292D001824AE /* NaiveStudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D87B21E7292A001824AE /* NaiveStudio.mm */; };
+		F366D8CC21E7292D001824AE /* NCAddNewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D87C21E7292A001824AE /* NCAddNewFileViewController.m */; };
+		F366D8CE21E7292D001824AE /* NCInterpreterController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D88021E7292B001824AE /* NCInterpreterController.mm */; };
+		F366D8D021E7292D001824AE /* NCRemoteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D89A21E7292B001824AE /* NCRemoteManager.mm */; };
+		F366D8D221E7292D001824AE /* NSView+Avatar.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8A121E7292B001824AE /* NSView+Avatar.m */; };
+		F366D8D321E7292D001824AE /* NCEditorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D8AD21E7292B001824AE /* NCEditorViewController.mm */; };
+		F366D8D421E7292D001824AE /* NCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8AE21E7292B001824AE /* NCConsole.m */; };
+		F366D8D521E7292D001824AE /* NCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8B221E7292C001824AE /* NCProject.m */; };
+		F366D8D621E7292D001824AE /* NCProjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8B321E7292C001824AE /* NCProjectManager.m */; };
+		F366D8D721E7292D001824AE /* NSTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8B421E7292C001824AE /* NSTestManager.m */; };
+		F366D8D821E7292D001824AE /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F366D8B821E7292C001824AE /* image.xcassets */; };
+		F366D8D921E7292D001824AE /* NCMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8B921E7292C001824AE /* NCMainViewCell.m */; };
+		F366D8DA21E7292D001824AE /* NCProjectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8BC21E7292C001824AE /* NCProjectContentViewController.m */; };
+		F366D8DB21E7292D001824AE /* NCProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8BD21E7292C001824AE /* NCProjectTableViewCell.m */; };
+		F366D8DC21E7292D001824AE /* NSViewController+NCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8BE21E7292C001824AE /* NSViewController+NCExtension.m */; };
+		F366D8DD21E7292D001824AE /* NCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8BF21E7292C001824AE /* NCDataSource.m */; };
+		F366D8DF21E7292D001824AE /* NCTestCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8C321E7292D001824AE /* NCTestCenter.m */; };
+		F366D8E021E7292D001824AE /* NCTextManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D8C421E7292D001824AE /* NCTextManager.mm */; };
+		F366D8E121E7292D001824AE /* NCCodeTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8C921E7292D001824AE /* NCCodeTemplate.m */; };
+		F366D8E721E72D1A001824AE /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D8E621E72D1A001824AE /* Common.mm */; };
+		F366D8EA21E74AFE001824AE /* NCDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8E921E74AFE001824AE /* NCDeviceManager.m */; };
+		F366D93621E7539B001824AE /* NCCodeEngine_Mac.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D93521E7539B001824AE /* NCCodeEngine_Mac.m */; };
+		F3EAAC7121ED85C900D7CBA4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC5821ED85C900D7CBA4 /* GCDAsyncUdpSocket.m */; };
+		F3EAAC7221ED85C900D7CBA4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC5921ED85C900D7CBA4 /* GCDAsyncSocket.m */; };
+		F3EAAC7321ED85CA00D7CBA4 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC5F21ED85C900D7CBA4 /* DDTTYLogger.m */; };
+		F3EAAC7421ED85CA00D7CBA4 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6221ED85C900D7CBA4 /* DDASLLogger.m */; };
+		F3EAAC7521ED85CA00D7CBA4 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6521ED85C900D7CBA4 /* DDContextFilterLogFormatter.m */; };
+		F3EAAC7621ED85CA00D7CBA4 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6621ED85C900D7CBA4 /* DDDispatchQueueLogFormatter.m */; };
+		F3EAAC7721ED85CA00D7CBA4 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6921ED85C900D7CBA4 /* DDMultiFormatter.m */; };
+		F3EAAC7821ED85CA00D7CBA4 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6B21ED85C900D7CBA4 /* DDLog.m */; };
+		F3EAAC7921ED85CA00D7CBA4 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6E21ED85C900D7CBA4 /* DDAbstractDatabaseLogger.m */; };
+		F3EAAC7A21ED85CA00D7CBA4 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC6F21ED85C900D7CBA4 /* DDFileLogger.m */; };
+		F3EAAC7D21ED8CFB00D7CBA4 /* NCConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC7C21ED8CFB00D7CBA4 /* NCConnectionViewController.m */; };
+		F3EAAC8021EDC62F00D7CBA4 /* NCNetworkData.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAAC7F21EDC62F00D7CBA4 /* NCNetworkData.m */; };
+		F3EAACC121EEC49900D7CBA4 /* NCCodeEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */; };
+		F3EAACC221EEC49900D7CBA4 /* NCCodeEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */; };
+		F3EAACD921EF2E4400D7CBA4 /* SYFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F366D86C21E727FF001824AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F366D84D21E727FE001824AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F366D85421E727FE001824AE;
+			remoteInfo = NaiveStudioMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F366D85521E727FE001824AE /* NaiveStudioMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaiveStudioMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F366D85821E727FE001824AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F366D85921E727FE001824AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F366D85E21E727FF001824AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F366D86121E727FF001824AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F366D86321E727FF001824AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F366D86421E727FF001824AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F366D86621E727FF001824AE /* NaiveStudioMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NaiveStudioMac.entitlements; sourceTree = "<group>"; };
+		F366D86B21E727FF001824AE /* NaiveStudioMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaiveStudioMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F366D86F21E727FF001824AE /* NaiveStudioMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaiveStudioMacTests.m; sourceTree = "<group>"; };
+		F366D87121E727FF001824AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F366D87A21E7292A001824AE /* NCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMainViewController.m; sourceTree = "<group>"; };
+		F366D87B21E7292A001824AE /* NaiveStudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NaiveStudio.mm; sourceTree = "<group>"; };
+		F366D87C21E7292A001824AE /* NCAddNewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCAddNewFileViewController.m; sourceTree = "<group>"; };
+		F366D88021E7292B001824AE /* NCInterpreterController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCInterpreterController.mm; sourceTree = "<group>"; };
+		F366D89421E7292B001824AE /* NCProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCProjectTableViewCell.h; sourceTree = "<group>"; };
+		F366D89521E7292B001824AE /* NCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMainViewController.h; sourceTree = "<group>"; };
+		F366D89621E7292B001824AE /* NCProjectContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCProjectContentViewController.h; sourceTree = "<group>"; };
+		F366D89721E7292B001824AE /* NCCodeTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCCodeTemplate.h; sourceTree = "<group>"; };
+		F366D89821E7292B001824AE /* NCInterpreterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCInterpreterController.h; sourceTree = "<group>"; };
+		F366D89A21E7292B001824AE /* NCRemoteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCRemoteManager.mm; sourceTree = "<group>"; };
+		F366D89E21E7292B001824AE /* NCRemoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCRemoteManager.h; sourceTree = "<group>"; };
+		F366D8A021E7292B001824AE /* NSView+Avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Avatar.h"; sourceTree = "<group>"; };
+		F366D8A121E7292B001824AE /* NSView+Avatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Avatar.m"; sourceTree = "<group>"; };
+		F366D8A321E7292B001824AE /* NCModuleCache.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCModuleCache.hpp; sourceTree = "<group>"; };
+		F366D8A421E7292B001824AE /* NCBuiltinFunctionStore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCBuiltinFunctionStore.hpp; sourceTree = "<group>"; };
+		F366D8A521E7292B001824AE /* NCClassLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCClassLoader.hpp; sourceTree = "<group>"; };
+		F366D8A621E7292B001824AE /* NCAST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCAST.hpp; sourceTree = "<group>"; };
+		F366D8A721E7292B001824AE /* NCClass.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCClass.hpp; sourceTree = "<group>"; };
+		F366D8A821E7292B001824AE /* NCBuiltinFunction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCBuiltinFunction.hpp; sourceTree = "<group>"; };
+		F366D8A921E7292B001824AE /* NCClassProvider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCClassProvider.hpp; sourceTree = "<group>"; };
+		F366D8AB21E7292B001824AE /* NCObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCObject.hpp; sourceTree = "<group>"; };
+		F366D8AC21E7292B001824AE /* NCStackElement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NCStackElement.hpp; sourceTree = "<group>"; };
+		F366D8AD21E7292B001824AE /* NCEditorViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCEditorViewController.mm; sourceTree = "<group>"; };
+		F366D8AE21E7292B001824AE /* NCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCConsole.m; sourceTree = "<group>"; };
+		F366D8AF21E7292B001824AE /* NCAddNewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCAddNewFileViewController.h; sourceTree = "<group>"; };
+		F366D8B021E7292B001824AE /* NCMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMainViewCell.h; sourceTree = "<group>"; };
+		F366D8B221E7292C001824AE /* NCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCProject.m; sourceTree = "<group>"; };
+		F366D8B321E7292C001824AE /* NCProjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCProjectManager.m; sourceTree = "<group>"; };
+		F366D8B421E7292C001824AE /* NSTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTestManager.m; sourceTree = "<group>"; };
+		F366D8B521E7292C001824AE /* NCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCProject.h; sourceTree = "<group>"; };
+		F366D8B621E7292C001824AE /* NCProjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCProjectManager.h; sourceTree = "<group>"; };
+		F366D8B721E7292C001824AE /* NSTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTestManager.h; sourceTree = "<group>"; };
+		F366D8B821E7292C001824AE /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
+		F366D8B921E7292C001824AE /* NCMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMainViewCell.m; sourceTree = "<group>"; };
+		F366D8BA21E7292C001824AE /* NCEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCEditorViewController.h; sourceTree = "<group>"; };
+		F366D8BB21E7292C001824AE /* NaiveStudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaiveStudio.h; sourceTree = "<group>"; };
+		F366D8BC21E7292C001824AE /* NCProjectContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCProjectContentViewController.m; sourceTree = "<group>"; };
+		F366D8BD21E7292C001824AE /* NCProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCProjectTableViewCell.m; sourceTree = "<group>"; };
+		F366D8BE21E7292C001824AE /* NSViewController+NCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSViewController+NCExtension.m"; sourceTree = "<group>"; };
+		F366D8BF21E7292C001824AE /* NCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCDataSource.m; sourceTree = "<group>"; };
+		F366D8C121E7292C001824AE /* NCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCDataSource.h; sourceTree = "<group>"; };
+		F366D8C221E7292D001824AE /* NCTestCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCTestCenter.h; sourceTree = "<group>"; };
+		F366D8C321E7292D001824AE /* NCTestCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCTestCenter.m; sourceTree = "<group>"; };
+		F366D8C421E7292D001824AE /* NCTextManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCTextManager.mm; sourceTree = "<group>"; };
+		F366D8C521E7292D001824AE /* NCTextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCTextManager.h; sourceTree = "<group>"; };
+		F366D8C621E7292D001824AE /* NCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCConsole.h; sourceTree = "<group>"; };
+		F366D8C721E7292D001824AE /* NSViewController+NCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSViewController+NCExtension.h"; sourceTree = "<group>"; };
+		F366D8C921E7292D001824AE /* NCCodeTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCCodeTemplate.m; sourceTree = "<group>"; };
+		F366D8E521E72D1A001824AE /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		F366D8E621E72D1A001824AE /* Common.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
+		F366D8E821E74AFE001824AE /* NCDeviceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCDeviceManager.h; sourceTree = "<group>"; };
+		F366D8E921E74AFE001824AE /* NCDeviceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCDeviceManager.m; sourceTree = "<group>"; };
+		F366D8EC21E7508D001824AE /* NaiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NaiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F366D93421E7539B001824AE /* NCCodeEngine_Mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCCodeEngine_Mac.h; sourceTree = "<group>"; };
+		F366D93521E7539B001824AE /* NCCodeEngine_Mac.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCCodeEngine_Mac.m; sourceTree = "<group>"; };
+		F3EAAC5821ED85C900D7CBA4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		F3EAAC5921ED85C900D7CBA4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		F3EAAC5A21ED85C900D7CBA4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		F3EAAC5B21ED85C900D7CBA4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		F3EAAC5C21ED85C900D7CBA4 /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaAsyncSocket.h; sourceTree = "<group>"; };
+		F3EAAC5F21ED85C900D7CBA4 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		F3EAAC6021ED85C900D7CBA4 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		F3EAAC6121ED85C900D7CBA4 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		F3EAAC6221ED85C900D7CBA4 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		F3EAAC6321ED85C900D7CBA4 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		F3EAAC6521ED85C900D7CBA4 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		F3EAAC6621ED85C900D7CBA4 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		F3EAAC6721ED85C900D7CBA4 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
+		F3EAAC6821ED85C900D7CBA4 /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		F3EAAC6921ED85C900D7CBA4 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		F3EAAC6A21ED85C900D7CBA4 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		F3EAAC6B21ED85C900D7CBA4 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		F3EAAC6C21ED85C900D7CBA4 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		F3EAAC6D21ED85C900D7CBA4 /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
+		F3EAAC6E21ED85C900D7CBA4 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		F3EAAC6F21ED85C900D7CBA4 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		F3EAAC7021ED85C900D7CBA4 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		F3EAAC7B21ED8CFB00D7CBA4 /* NCConnectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCConnectionViewController.h; sourceTree = "<group>"; };
+		F3EAAC7C21ED8CFB00D7CBA4 /* NCConnectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCConnectionViewController.m; sourceTree = "<group>"; };
+		F3EAAC7E21EDC62F00D7CBA4 /* NCNetworkData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCNetworkData.h; sourceTree = "<group>"; };
+		F3EAAC7F21EDC62F00D7CBA4 /* NCNetworkData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCNetworkData.m; sourceTree = "<group>"; };
+		F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NCCodeEditViewController.xib; sourceTree = "<group>"; };
+		F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCCodeEditViewController.m; sourceTree = "<group>"; };
+		F3EAACC021EEC49900D7CBA4 /* NCCodeEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCCodeEditViewController.h; sourceTree = "<group>"; };
+		F3EAACD721EF2E4400D7CBA4 /* SYFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFlatButton.h; sourceTree = "<group>"; };
+		F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYFlatButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F366D85221E727FE001824AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F366D86821E727FF001824AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F366D84C21E727FE001824AE = {
+			isa = PBXGroup;
+			children = (
+				F366D85721E727FE001824AE /* NaiveStudioMac */,
+				F366D86E21E727FF001824AE /* NaiveStudioMacTests */,
+				F366D85621E727FE001824AE /* Products */,
+				F366D8EB21E7508D001824AE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F366D85621E727FE001824AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F366D85521E727FE001824AE /* NaiveStudioMac.app */,
+				F366D86B21E727FF001824AE /* NaiveStudioMacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F366D85721E727FE001824AE /* NaiveStudioMac */ = {
+			isa = PBXGroup;
+			children = (
+				F366D8E521E72D1A001824AE /* Common.h */,
+				F366D8E621E72D1A001824AE /* Common.mm */,
+				F366D87D21E7292B001824AE /* Builtin */,
+				F366D88121E7292B001824AE /* Dependency */,
+				F366D8B821E7292C001824AE /* image.xcassets */,
+				F366D8A221E7292B001824AE /* inc */,
+				F366D8B121E7292C001824AE /* Model */,
+				F366D8BB21E7292C001824AE /* NaiveStudio.h */,
+				F366D87B21E7292A001824AE /* NaiveStudio.mm */,
+				F366D8AF21E7292B001824AE /* NCAddNewFileViewController.h */,
+				F366D87C21E7292A001824AE /* NCAddNewFileViewController.m */,
+				F366D89721E7292B001824AE /* NCCodeTemplate.h */,
+				F366D8C921E7292D001824AE /* NCCodeTemplate.m */,
+				F366D8C621E7292D001824AE /* NCConsole.h */,
+				F366D8AE21E7292B001824AE /* NCConsole.m */,
+				F3EAAC7B21ED8CFB00D7CBA4 /* NCConnectionViewController.h */,
+				F3EAAC7C21ED8CFB00D7CBA4 /* NCConnectionViewController.m */,
+				F366D8C121E7292C001824AE /* NCDataSource.h */,
+				F366D8BF21E7292C001824AE /* NCDataSource.m */,
+				F366D8BA21E7292C001824AE /* NCEditorViewController.h */,
+				F366D8AD21E7292B001824AE /* NCEditorViewController.mm */,
+				F366D89821E7292B001824AE /* NCInterpreterController.h */,
+				F366D88021E7292B001824AE /* NCInterpreterController.mm */,
+				F366D8B021E7292B001824AE /* NCMainViewCell.h */,
+				F366D8B921E7292C001824AE /* NCMainViewCell.m */,
+				F366D89521E7292B001824AE /* NCMainViewController.h */,
+				F366D87A21E7292A001824AE /* NCMainViewController.m */,
+				F366D89621E7292B001824AE /* NCProjectContentViewController.h */,
+				F366D8BC21E7292C001824AE /* NCProjectContentViewController.m */,
+				F3EAACC021EEC49900D7CBA4 /* NCCodeEditViewController.h */,
+				F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */,
+				F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */,
+				F366D89421E7292B001824AE /* NCProjectTableViewCell.h */,
+				F366D8BD21E7292C001824AE /* NCProjectTableViewCell.m */,
+				F366D8C221E7292D001824AE /* NCTestCenter.h */,
+				F366D8C321E7292D001824AE /* NCTestCenter.m */,
+				F366D8C521E7292D001824AE /* NCTextManager.h */,
+				F366D8C421E7292D001824AE /* NCTextManager.mm */,
+				F366D89921E7292B001824AE /* Remote */,
+				F366D8C721E7292D001824AE /* NSViewController+NCExtension.h */,
+				F366D8BE21E7292C001824AE /* NSViewController+NCExtension.m */,
+				F366D85821E727FE001824AE /* AppDelegate.h */,
+				F366D85921E727FE001824AE /* AppDelegate.m */,
+				F366D85E21E727FF001824AE /* Assets.xcassets */,
+				F366D86021E727FF001824AE /* Main.storyboard */,
+				F366D86321E727FF001824AE /* Info.plist */,
+				F366D86421E727FF001824AE /* main.m */,
+				F366D86621E727FF001824AE /* NaiveStudioMac.entitlements */,
+				F366D8E821E74AFE001824AE /* NCDeviceManager.h */,
+				F366D8E921E74AFE001824AE /* NCDeviceManager.m */,
+				F366D93421E7539B001824AE /* NCCodeEngine_Mac.h */,
+				F366D93521E7539B001824AE /* NCCodeEngine_Mac.m */,
+			);
+			path = NaiveStudioMac;
+			sourceTree = "<group>";
+		};
+		F366D86E21E727FF001824AE /* NaiveStudioMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				F366D86F21E727FF001824AE /* NaiveStudioMacTests.m */,
+				F366D87121E727FF001824AE /* Info.plist */,
+			);
+			path = NaiveStudioMacTests;
+			sourceTree = "<group>";
+		};
+		F366D87D21E7292B001824AE /* Builtin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Builtin;
+			sourceTree = "<group>";
+		};
+		F366D88121E7292B001824AE /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				F366D88221E7292B001824AE /* thirdparty */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		F366D88221E7292B001824AE /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAACD621EF2E4400D7CBA4 /* SYFlatButton */,
+				F3EAAC5621ED85C900D7CBA4 /* CocoaAsyncSocket */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		F366D89921E7292B001824AE /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				F366D89E21E7292B001824AE /* NCRemoteManager.h */,
+				F366D89A21E7292B001824AE /* NCRemoteManager.mm */,
+				F366D89F21E7292B001824AE /* Avatar */,
+				F3EAAC7E21EDC62F00D7CBA4 /* NCNetworkData.h */,
+				F3EAAC7F21EDC62F00D7CBA4 /* NCNetworkData.m */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		F366D89F21E7292B001824AE /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				F366D8A021E7292B001824AE /* NSView+Avatar.h */,
+				F366D8A121E7292B001824AE /* NSView+Avatar.m */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
+		F366D8A221E7292B001824AE /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				F366D8A321E7292B001824AE /* NCModuleCache.hpp */,
+				F366D8A421E7292B001824AE /* NCBuiltinFunctionStore.hpp */,
+				F366D8A521E7292B001824AE /* NCClassLoader.hpp */,
+				F366D8A621E7292B001824AE /* NCAST.hpp */,
+				F366D8A721E7292B001824AE /* NCClass.hpp */,
+				F366D8A821E7292B001824AE /* NCBuiltinFunction.hpp */,
+				F366D8A921E7292B001824AE /* NCClassProvider.hpp */,
+				F366D8AB21E7292B001824AE /* NCObject.hpp */,
+				F366D8AC21E7292B001824AE /* NCStackElement.hpp */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		F366D8B121E7292C001824AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F366D8B221E7292C001824AE /* NCProject.m */,
+				F366D8B321E7292C001824AE /* NCProjectManager.m */,
+				F366D8B421E7292C001824AE /* NSTestManager.m */,
+				F366D8B521E7292C001824AE /* NCProject.h */,
+				F366D8B621E7292C001824AE /* NCProjectManager.h */,
+				F366D8B721E7292C001824AE /* NSTestManager.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F366D8EB21E7508D001824AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F366D8EC21E7508D001824AE /* NaiveC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3EAAC5621ED85C900D7CBA4 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAAC5721ED85C900D7CBA4 /* GCD */,
+				F3EAAC5C21ED85C900D7CBA4 /* CocoaAsyncSocket.h */,
+				F3EAAC5D21ED85C900D7CBA4 /* Vendor */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		F3EAAC5721ED85C900D7CBA4 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAAC5821ED85C900D7CBA4 /* GCDAsyncUdpSocket.m */,
+				F3EAAC5921ED85C900D7CBA4 /* GCDAsyncSocket.m */,
+				F3EAAC5A21ED85C900D7CBA4 /* GCDAsyncUdpSocket.h */,
+				F3EAAC5B21ED85C900D7CBA4 /* GCDAsyncSocket.h */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		F3EAAC5D21ED85C900D7CBA4 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAAC5E21ED85C900D7CBA4 /* CocoaLumberjack */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		F3EAAC5E21ED85C900D7CBA4 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAAC5F21ED85C900D7CBA4 /* DDTTYLogger.m */,
+				F3EAAC6021ED85C900D7CBA4 /* DDLog.h */,
+				F3EAAC6121ED85C900D7CBA4 /* DDAbstractDatabaseLogger.h */,
+				F3EAAC6221ED85C900D7CBA4 /* DDASLLogger.m */,
+				F3EAAC6321ED85C900D7CBA4 /* DDFileLogger.h */,
+				F3EAAC6421ED85C900D7CBA4 /* Extensions */,
+				F3EAAC6B21ED85C900D7CBA4 /* DDLog.m */,
+				F3EAAC6C21ED85C900D7CBA4 /* DDTTYLogger.h */,
+				F3EAAC6D21ED85C900D7CBA4 /* DDLog+LOGV.h */,
+				F3EAAC6E21ED85C900D7CBA4 /* DDAbstractDatabaseLogger.m */,
+				F3EAAC6F21ED85C900D7CBA4 /* DDFileLogger.m */,
+				F3EAAC7021ED85C900D7CBA4 /* DDASLLogger.h */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		F3EAAC6421ED85C900D7CBA4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAAC6521ED85C900D7CBA4 /* DDContextFilterLogFormatter.m */,
+				F3EAAC6621ED85C900D7CBA4 /* DDDispatchQueueLogFormatter.m */,
+				F3EAAC6721ED85C900D7CBA4 /* DDMultiFormatter.h */,
+				F3EAAC6821ED85C900D7CBA4 /* DDContextFilterLogFormatter.h */,
+				F3EAAC6921ED85C900D7CBA4 /* DDMultiFormatter.m */,
+				F3EAAC6A21ED85C900D7CBA4 /* DDDispatchQueueLogFormatter.h */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F3EAACD621EF2E4400D7CBA4 /* SYFlatButton */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAACD721EF2E4400D7CBA4 /* SYFlatButton.h */,
+				F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */,
+			);
+			path = SYFlatButton;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F366D85421E727FE001824AE /* NaiveStudioMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F366D87421E727FF001824AE /* Build configuration list for PBXNativeTarget "NaiveStudioMac" */;
+			buildPhases = (
+				F366D85121E727FE001824AE /* Sources */,
+				F366D85221E727FE001824AE /* Frameworks */,
+				F366D85321E727FE001824AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NaiveStudioMac;
+			productName = NaiveStudioMac;
+			productReference = F366D85521E727FE001824AE /* NaiveStudioMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F366D86A21E727FF001824AE /* NaiveStudioMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F366D87721E727FF001824AE /* Build configuration list for PBXNativeTarget "NaiveStudioMacTests" */;
+			buildPhases = (
+				F366D86721E727FF001824AE /* Sources */,
+				F366D86821E727FF001824AE /* Frameworks */,
+				F366D86921E727FF001824AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F366D86D21E727FF001824AE /* PBXTargetDependency */,
+			);
+			name = NaiveStudioMacTests;
+			productName = NaiveStudioMacTests;
+			productReference = F366D86B21E727FF001824AE /* NaiveStudioMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F366D84D21E727FE001824AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Liang,Zhiyuan(GIS)";
+				TargetAttributes = {
+					F366D85421E727FE001824AE = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					F366D86A21E727FF001824AE = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F366D85421E727FE001824AE;
+					};
+				};
+			};
+			buildConfigurationList = F366D85021E727FE001824AE /* Build configuration list for PBXProject "NaiveStudioMac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F366D84C21E727FE001824AE;
+			productRefGroup = F366D85621E727FE001824AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F366D85421E727FE001824AE /* NaiveStudioMac */,
+				F366D86A21E727FF001824AE /* NaiveStudioMacTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F366D85321E727FE001824AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F366D8D821E7292D001824AE /* image.xcassets in Resources */,
+				F366D85F21E727FF001824AE /* Assets.xcassets in Resources */,
+				F3EAACC121EEC49900D7CBA4 /* NCCodeEditViewController.xib in Resources */,
+				F366D86221E727FF001824AE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F366D86921E727FF001824AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F366D85121E727FE001824AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3EAACD921EF2E4400D7CBA4 /* SYFlatButton.m in Sources */,
+				F366D8D421E7292D001824AE /* NCConsole.m in Sources */,
+				F366D8DD21E7292D001824AE /* NCDataSource.m in Sources */,
+				F366D8DA21E7292D001824AE /* NCProjectContentViewController.m in Sources */,
+				F366D93621E7539B001824AE /* NCCodeEngine_Mac.m in Sources */,
+				F366D8D221E7292D001824AE /* NSView+Avatar.m in Sources */,
+				F3EAAC7621ED85CA00D7CBA4 /* DDDispatchQueueLogFormatter.m in Sources */,
+				F3EAAC7321ED85CA00D7CBA4 /* DDTTYLogger.m in Sources */,
+				F366D8E721E72D1A001824AE /* Common.mm in Sources */,
+				F3EAACC221EEC49900D7CBA4 /* NCCodeEditViewController.m in Sources */,
+				F3EAAC7221ED85C900D7CBA4 /* GCDAsyncSocket.m in Sources */,
+				F366D86521E727FF001824AE /* main.m in Sources */,
+				F366D8D021E7292D001824AE /* NCRemoteManager.mm in Sources */,
+				F366D8D721E7292D001824AE /* NSTestManager.m in Sources */,
+				F366D8E021E7292D001824AE /* NCTextManager.mm in Sources */,
+				F366D8E121E7292D001824AE /* NCCodeTemplate.m in Sources */,
+				F366D8CE21E7292D001824AE /* NCInterpreterController.mm in Sources */,
+				F366D8CB21E7292D001824AE /* NaiveStudio.mm in Sources */,
+				F3EAAC7521ED85CA00D7CBA4 /* DDContextFilterLogFormatter.m in Sources */,
+				F366D8DB21E7292D001824AE /* NCProjectTableViewCell.m in Sources */,
+				F366D8CA21E7292D001824AE /* NCMainViewController.m in Sources */,
+				F3EAAC7D21ED8CFB00D7CBA4 /* NCConnectionViewController.m in Sources */,
+				F366D8DF21E7292D001824AE /* NCTestCenter.m in Sources */,
+				F3EAAC7721ED85CA00D7CBA4 /* DDMultiFormatter.m in Sources */,
+				F366D8D321E7292D001824AE /* NCEditorViewController.mm in Sources */,
+				F366D8D521E7292D001824AE /* NCProject.m in Sources */,
+				F3EAAC7A21ED85CA00D7CBA4 /* DDFileLogger.m in Sources */,
+				F366D8DC21E7292D001824AE /* NSViewController+NCExtension.m in Sources */,
+				F366D8D921E7292D001824AE /* NCMainViewCell.m in Sources */,
+				F3EAAC7421ED85CA00D7CBA4 /* DDASLLogger.m in Sources */,
+				F3EAAC7821ED85CA00D7CBA4 /* DDLog.m in Sources */,
+				F3EAAC8021EDC62F00D7CBA4 /* NCNetworkData.m in Sources */,
+				F366D8CC21E7292D001824AE /* NCAddNewFileViewController.m in Sources */,
+				F366D85A21E727FE001824AE /* AppDelegate.m in Sources */,
+				F366D8EA21E74AFE001824AE /* NCDeviceManager.m in Sources */,
+				F3EAAC7121ED85C900D7CBA4 /* GCDAsyncUdpSocket.m in Sources */,
+				F3EAAC7921ED85CA00D7CBA4 /* DDAbstractDatabaseLogger.m in Sources */,
+				F366D8D621E7292D001824AE /* NCProjectManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F366D86721E727FF001824AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F366D87021E727FF001824AE /* NaiveStudioMacTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F366D86D21E727FF001824AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F366D85421E727FE001824AE /* NaiveStudioMac */;
+			targetProxy = F366D86C21E727FF001824AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F366D86021E727FF001824AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F366D86121E727FF001824AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F366D87221E727FF001824AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F366D87321E727FF001824AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F366D87521E727FF001824AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NaiveStudioMac/NaiveStudioMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NaiveStudioMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NaiveStudioMac/Dependency/thirdparty/sim",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bd.NaiveStudioMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F366D87621E727FF001824AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NaiveStudioMac/NaiveStudioMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NaiveStudioMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NaiveStudioMac/Dependency/thirdparty/sim",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bd.NaiveStudioMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F366D87821E727FF001824AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NaiveStudioMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bd.NaiveStudioMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NaiveStudioMac.app/Contents/MacOS/NaiveStudioMac";
+			};
+			name = Debug;
+		};
+		F366D87921E727FF001824AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NaiveStudioMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bd.NaiveStudioMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NaiveStudioMac.app/Contents/MacOS/NaiveStudioMac";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F366D85021E727FE001824AE /* Build configuration list for PBXProject "NaiveStudioMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F366D87221E727FF001824AE /* Debug */,
+				F366D87321E727FF001824AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F366D87421E727FF001824AE /* Build configuration list for PBXNativeTarget "NaiveStudioMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F366D87521E727FF001824AE /* Debug */,
+				F366D87621E727FF001824AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F366D87721E727FF001824AE /* Build configuration list for PBXNativeTarget "NaiveStudioMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F366D87821E727FF001824AE /* Debug */,
+				F366D87921E727FF001824AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F366D84D21E727FE001824AE /* Project object */;
+}
