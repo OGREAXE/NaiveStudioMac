@@ -50,6 +50,10 @@
     [super viewDidLoad];
     
     self.view.layer.backgroundColor  = [NSColor grayColor].CGColor;
+
+    self.titleTextField.bezeled         = NO;
+    self.titleTextField.editable        = NO;
+    self.titleTextField.drawsBackground = NO;
     
     _textViewDataSource  = [[NCTextViewDataSource alloc] initWithTextView:self.textView];
     
@@ -70,7 +74,7 @@
     NSClickGestureRecognizer *click = [[NSClickGestureRecognizer alloc] initWithTarget:self action:@selector(networkTextFieldClicked)];
     [self.networkStatusTextField addGestureRecognizer:click];
     
-    self.titleTextField.stringValue = self.project.name;
+    self.titleTextField.stringValue = self.sourceFile.filename;
     
     self.textView.delegate = self;
 }
@@ -85,6 +89,10 @@
         
         [self presentViewControllerAsSheet:controller];
     }
+}
+
+-(void)dealloc{
+    
 }
 
 -(void)updateNetworkStatus{
