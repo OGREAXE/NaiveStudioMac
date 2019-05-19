@@ -50,7 +50,7 @@
 
 @end
 
-#define TableViewWidth 400
+#define TableViewWidth 350
 
 @interface NCProjectContentViewController ()<NSTableViewDataSource, NSTableViewDelegate,NCAddNewFileViewControllerDelegate>
 
@@ -73,7 +73,7 @@
 @implementation NCProjectContentViewController
 
 -(void)loadView{
-    self.view = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 1300, 800)];
+    self.view = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 1200, 800)];
 }
 
 -(void)dealloc{
