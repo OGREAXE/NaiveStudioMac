@@ -51,6 +51,7 @@ static NCRemoteManager *_instance = nil;
     return self;
 }
 
+
 -(GCDAsyncSocket*)socket{
     if (!_socket) {
         _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
@@ -76,7 +77,7 @@ static NCRemoteManager *_instance = nil;
 
 -(void)connectToServerHost:(NSString*)host completion:(void (^)(BOOL result, NSError *error))completionHandler{
     NSError * error = nil;
-    BOOL result = [self.socket connectToHost:host onPort:CONNECT_PORT error:&error];
+    BOOL result = [self.socket connectToHost:host onPort:CONNECT_PORT withTimeout:10 error:&error];
     if (!result) {
         LOG_REMOTE(@"connect to host %@:%d fail, error %@",host,CONNECT_PORT,error);
         

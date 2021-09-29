@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NCInterpretorMode mode;
 
 @property (nonatomic) NCInterpreterController * interpreter;
+
+@property (nonatomic) NSViewController * lastViewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

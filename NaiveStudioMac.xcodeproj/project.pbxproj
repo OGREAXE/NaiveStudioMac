@@ -50,6 +50,8 @@
 		F3EAACC121EEC49900D7CBA4 /* NCCodeEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */; };
 		F3EAACC221EEC49900D7CBA4 /* NCCodeEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */; };
 		F3EAACD921EF2E4400D7CBA4 /* SYFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */; };
+		F3EAACDD21EF338500D7CBA4 /* NCCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EAACDB21EF338500D7CBA4 /* NCCodeViewController.m */; };
+		F3EAACDE21EF338500D7CBA4 /* NCCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EAACDC21EF338500D7CBA4 /* NCCodeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,9 @@
 		F3EAACC021EEC49900D7CBA4 /* NCCodeEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCCodeEditViewController.h; sourceTree = "<group>"; };
 		F3EAACD721EF2E4400D7CBA4 /* SYFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFlatButton.h; sourceTree = "<group>"; };
 		F3EAACD821EF2E4400D7CBA4 /* SYFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYFlatButton.m; sourceTree = "<group>"; };
+		F3EAACDA21EF338500D7CBA4 /* NCCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCCodeViewController.h; sourceTree = "<group>"; };
+		F3EAACDB21EF338500D7CBA4 /* NCCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCCodeViewController.m; sourceTree = "<group>"; };
+		F3EAACDC21EF338500D7CBA4 /* NCCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NCCodeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +239,9 @@
 				F3EAACC021EEC49900D7CBA4 /* NCCodeEditViewController.h */,
 				F3EAACBF21EEC49900D7CBA4 /* NCCodeEditViewController.m */,
 				F3EAACBE21EEC49800D7CBA4 /* NCCodeEditViewController.xib */,
+				F3EAACDA21EF338500D7CBA4 /* NCCodeViewController.h */,
+				F3EAACDB21EF338500D7CBA4 /* NCCodeViewController.m */,
+				F3EAACDC21EF338500D7CBA4 /* NCCodeViewController.xib */,
 				F366D89421E7292B001824AE /* NCProjectTableViewCell.h */,
 				F366D8BD21E7292C001824AE /* NCProjectTableViewCell.m */,
 				F366D8C221E7292D001824AE /* NCTestCenter.h */,
@@ -500,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F366D8D821E7292D001824AE /* image.xcassets in Resources */,
+				F3EAACDE21EF338500D7CBA4 /* NCCodeViewController.xib in Resources */,
 				F366D85F21E727FF001824AE /* Assets.xcassets in Resources */,
 				F3EAACC121EEC49900D7CBA4 /* NCCodeEditViewController.xib in Resources */,
 				F366D86221E727FF001824AE /* Main.storyboard in Resources */,
@@ -533,6 +542,7 @@
 				F3EAAC7221ED85C900D7CBA4 /* GCDAsyncSocket.m in Sources */,
 				F366D86521E727FF001824AE /* main.m in Sources */,
 				F366D8D021E7292D001824AE /* NCRemoteManager.mm in Sources */,
+				F3EAACDD21EF338500D7CBA4 /* NCCodeViewController.m in Sources */,
 				F366D8D721E7292D001824AE /* NSTestManager.m in Sources */,
 				F366D8E021E7292D001824AE /* NCTextManager.mm in Sources */,
 				F366D8E121E7292D001824AE /* NCCodeTemplate.m in Sources */,

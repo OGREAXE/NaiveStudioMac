@@ -17,7 +17,7 @@
 #include "NCTextManager.h"
 #import "NCConnectionViewController.h"
 
-@interface NCCodeEditViewController ()
+@interface NCCodeEditViewController ()<NSTextViewDelegate>
 @property (nonatomic) IBOutlet  NSTextView * textView;
 @property (nonatomic) IBOutlet  NSScrollView * textViewScrollView;
 
@@ -50,6 +50,10 @@
     [super viewDidLoad];
     
     self.view.layer.backgroundColor  = [NSColor grayColor].CGColor;
+
+    self.titleTextField.bezeled         = NO;
+    self.titleTextField.editable        = NO;
+    self.titleTextField.drawsBackground = NO;
     
     _textViewDataSource  = [[NCTextViewDataSource alloc] initWithTextView:self.textView];
     
@@ -70,7 +74,9 @@
     NSClickGestureRecognizer *click = [[NSClickGestureRecognizer alloc] initWithTarget:self action:@selector(networkTextFieldClicked)];
     [self.networkStatusTextField addGestureRecognizer:click];
     
-    self.titleTextField.stringValue = self.project.name;
+    self.titleTextField.stringValue = self.sourceFile.filename;
+    
+    self.textView.delegate = self;
 }
 
 -(void)connectionChanged{
@@ -83,6 +89,10 @@
         
         [self presentViewControllerAsSheet:controller];
     }
+}
+
+-(void)dealloc{
+    
 }
 
 -(void)updateNetworkStatus{
@@ -139,9 +149,11 @@
 }
 
 -(IBAction)didTapClose:(id)sender{
-    NCProjectContentViewController * controller = [[NCProjectContentViewController alloc] init];
-    controller.project = self.project;
-    self.view.window.contentViewController = controller;
+//    NCProjectContentViewController * controller = [[NCProjectContentViewController alloc] init];
+//    controller.project = self.project;
+//    self.view.window.contentViewController = controller;
+    
+    self.view.window.contentViewController = self.lastViewController;
 }
 
 -(IBAction)didTapClear:(id)sender{
@@ -162,6 +174,59 @@
 -(void)didClose:(NCCodeFastInputViewController *)controller{
     [self.textView becomeFirstResponder];
     self.textView.selectedRange  = self.selectedRange;
+}
+
+-(void)handleCommandSlash{
+    //comment out selection
+    
+    
+    
+    NSRange selectedRange = self.textView.selectedRange;
+    
+    NSMutableString * codeContent = [[NSMutableString alloc] initWithString: self.textView.string];
+    
+    NSString * selectedContent = [codeContent substringWithRange:selectedRange];
+    
+    NSUInteger countOfComment = [[selectedContent componentsSeparatedByString:@"//"] count];
+    NSUInteger countOfEnter = [[selectedContent componentsSeparatedByString:@"\n"] count];
+    if (countOfComment >= countOfEnter) {
+        [codeContent replaceOccurrencesOfString:@"//" withString:@"" options:0 range:selectedRange];
+        self.textView.string = codeContent;
+        return;
+    }
+    
+    NSInteger loc = selectedRange.location-1;
+    
+    while(loc >= 0 && [codeContent characterAtIndex:loc] != '\n'){
+        loc --;
+    }
+    
+    if (loc == -1) {
+        [codeContent insertString:@"//" atIndex:0];
+    }
+    else if(loc >= 0 && [codeContent characterAtIndex:loc] == '\n') {
+        [codeContent insertString:@"//" atIndex:loc];
+    }
+    
+    [codeContent replaceOccurrencesOfString:@"\n" withString:@"\n//" options:0 range:NSMakeRange(loc>=0?loc:0, selectedRange.length)];
+    
+    self.textView.string = codeContent;
+}
+
+- (BOOL)isCommandSlashEvent:(NSEvent *)e {
+    NSUInteger flags = (e.modifierFlags & NSEventModifierFlagDeviceIndependentFlagsMask);
+    BOOL isCommand = (flags & NSEventModifierFlagCommand) == NSEventModifierFlagCommand;
+    BOOL isSlash = (e.keyCode == 0x2c); // VK_SLASH
+    return (isCommand && isSlash);
+}
+
+- (BOOL)textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector{
+    if ((commandSelector == @selector(noop:)) &&
+        [self isCommandSlashEvent:[NSApp currentEvent]]) {
+        [self handleCommandSlash];
+        return YES;
+    }
+    return NO;
 }
 
 @end

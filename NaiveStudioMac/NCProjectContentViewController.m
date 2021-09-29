@@ -26,7 +26,8 @@
     self = [super init];
     if(self){
         _textField = [[NSTextField alloc] initWithFrame:CGRectZero];
-        _textField.font = [NSFont systemFontOfSize:30];
+        _textField.textColor = [NSColor blackColor];
+        _textField.font = [NSFont systemFontOfSize:20];
         [self addSubview:_textField];
     }
     return self;
@@ -38,7 +39,18 @@
     _textField.frame = self.bounds;
 }
 
+-(void)setEmphasized:(BOOL)emphasized{
+    if(emphasized){
+        _textField.textColor = [NSColor blueColor];
+    }
+    else {
+        _textField.textColor = [NSColor blackColor];
+    }
+}
+
 @end
+
+#define TableViewWidth 350
 
 @interface NCProjectContentViewController ()<NSTableViewDataSource, NSTableViewDelegate,NCAddNewFileViewControllerDelegate>
 
@@ -52,12 +64,16 @@
 
 @property (nonatomic) NCInterpreterController * interpreter;
 
+@property (nonatomic) NSViewController * rightViewController;
+
+@property (nonatomic) NSInteger lastSelectedRow;
+
 @end
 
 @implementation NCProjectContentViewController
 
 -(void)loadView{
-    self.view = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 600, 800)];
+    self.view = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 1200, 800)];
 }
 
 -(void)dealloc{
@@ -67,13 +83,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.lastSelectedRow = -1;
     
-    self.scrollView = [[NSScrollView alloc] initWithFrame:CGRectMake(0, 60, 600, 800)];
+    self.scrollView = [[NSScrollView alloc] initWithFrame:CGRectMake(0, 60, TableViewWidth, 800)];
     
 //    self.tableView = [[NSTableView alloc] initWithFrame:CGRectMake(0, 60, 600, 800)];
     self.tableView = [[NSTableView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    NSMenu * tableViewMenu = [[NSMenu alloc] init];
+    NSMenuItem * delMenuItem = [[NSMenuItem alloc] initWithTitle:@"delete" action:@selector(didSelMenuItem:) keyEquivalent:@""];
+    delMenuItem.target = self;
+    [tableViewMenu insertItem:delMenuItem atIndex:0];
+    self.tableView.menu = tableViewMenu;
     
     self.scrollView.documentView = self.tableView;
     [self.view addSubview:self.scrollView];
@@ -83,7 +105,7 @@
     self.title= self.project.name;
     
     NSButton * addNewButton = [NSButton buttonWithTitle:@"new" target:self action:@selector(didTapAddNew)];
-    addNewButton.frame = CGRectMake(0, 0, 600, 60);
+    addNewButton.frame = CGRectMake(0, 0, TableViewWidth, 60);
     [self.view addSubview:addNewButton];
     
     NSTextField * networkStatusTextField = [[NSTextField alloc] init];
@@ -121,8 +143,8 @@
     
     CGFloat bottomBarViewHeight = 60;
     CGFloat topBarViewHeight = 30;
-    self.scrollView.frame = CGRectMake(0, bottomBarViewHeight, 600, self.view.frame.size.height - bottomBarViewHeight - topBarViewHeight);
-    self.networkStatusTextField.frame = CGRectMake(0, CGRectGetMaxY(self.scrollView.frame), 600, topBarViewHeight);
+    self.scrollView.frame = CGRectMake(0, bottomBarViewHeight, TableViewWidth, self.view.frame.size.height - bottomBarViewHeight - topBarViewHeight);
+    self.networkStatusTextField.frame = CGRectMake(0, CGRectGetMaxY(self.scrollView.frame), TableViewWidth, topBarViewHeight);
 }
 
 -(void)connectionChanged{
@@ -153,7 +175,7 @@
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
-    return 50;
+    return 30;
 }
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
@@ -220,15 +242,37 @@
     
     NSTableView *tableView = notification.object;
     
+    if(self.lastSelectedRow != -1){
+        NSTableRowView *lastSelectedRowView = [tableView rowViewAtRow:self.lastSelectedRow makeIfNecessary:NO];
+        [lastSelectedRowView setEmphasized:NO];
+    }
+    
+    NSInteger selectedRow = [tableView selectedRow];
+    NSTableRowView * rowView = [tableView rowViewAtRow:selectedRow makeIfNecessary:NO];
+    [rowView setEmphasized:YES];
+    
+    self.lastSelectedRow = selectedRow;
+    
+    [self loadSourceFile:self.project.sourceFiles[tableView.selectedRow]];
+}
+
+-(BOOL)loadSourceFile:(NCSourceFile*)file{
     NCCodeEditViewController * editVC = [[NCCodeEditViewController alloc] initWithNibName:@"NCCodeEditViewController" bundle:nil];
     
     //    editVC.mode = self.mode;
     editVC.interpreter = self.interpreter;
-    editVC.sourceFile = self.project.sourceFiles[tableView.selectedRow];
-    editVC.interpreter = self.interpreter;
+    editVC.sourceFile = file;
     editVC.project = self.project;
     
-    self.view.window.contentViewController = editVC;
+    [self.rightViewController.view removeFromSuperview];
+    
+    self.rightViewController = editVC;
+    [self.view addSubview:editVC.view];
+    
+    CGRect tableFrm = self.scrollView.frame;
+    editVC.view.frame = CGRectMake(CGRectGetMaxX(tableFrm)+10, CGRectGetMinY(tableFrm)-20, self.view.frame.size.width - 10 -CGRectGetMinX(tableFrm) - TableViewWidth - 10, tableFrm.size.height+30);
+    
+    return YES;
 }
 
 -(void)didTapAddNew{
@@ -249,15 +293,37 @@
 -(void)addNewFileViewController:(NCAddNewFileViewController*)addNewController didAddFile:(NCSourceFile*)file{
     
 
-    NCCodeEditViewController * editVC = [[NCCodeEditViewController alloc] initWithNibName:@"NCCodeEditViewController" bundle:nil];
+//    NCCodeEditViewController * editVC = [[NCCodeEditViewController alloc] initWithNibName:@"NCCodeEditViewController" bundle:nil];
+//
+//    //    editVC.mode = self.mode;
+//    editVC.interpreter = self.interpreter;
+//    editVC.sourceFile = file;
+//    editVC.interpreter = self.interpreter;
+//    editVC.project = self.project;
+//
+//    self.view.window.contentViewController = editVC;
     
-    //    editVC.mode = self.mode;
-    editVC.interpreter = self.interpreter;
-    editVC.sourceFile = file;
-    editVC.interpreter = self.interpreter;
-    editVC.project = self.project;
+    [self loadSourceFile:file];
     
-    self.view.window.contentViewController = editVC;
+    [self.project reload];
+    [self.tableView reloadData];
+}
+
+-(void)didSelMenuItem:(id)sender{
+    NSInteger row = self.tableView.clickedRow;
+    NCSourceFile * srcFile =  self.project.sourceFiles[row];
+    NSError * err = nil;
+    [[NCProjectManager sharedManager] removeSourceFile:srcFile project:self.project error:&err];
+    if (err) {
+        NSAlert * alert = [NSAlert alertWithError:err];
+        [alert addButtonWithTitle:@"确定"];
+        [alert setAlertStyle:NSAlertStyleWarning];
+        [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
+            
+        }];
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end

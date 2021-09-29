@@ -28,6 +28,8 @@
 
 @property (nonatomic) NSMutableArray * projectList;
 
+@property (nonatomic) NSImageView * logoView;
+
 @end
 
 @implementation NCMainViewController
@@ -46,6 +48,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
+    
+    CGFloat logoWidth = 200;
+    self.logoView = [[NSImageView alloc] initWithFrame:CGRectMake((600-logoWidth)/2, 300, logoWidth, logoWidth)];
+    self.logoView.image = [NSImage imageNamed:@"naive"];
+    [self.view addSubview:self.logoView];
     
     self.playgroundButton = [NSButton buttonWithTitle:@"playground" target:self action:@selector(didTapGotoPlaygound:)];
     self.playgroundButton.frame = CGRectMake(200, 80, 200, 80);

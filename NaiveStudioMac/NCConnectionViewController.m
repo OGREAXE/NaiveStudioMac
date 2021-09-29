@@ -17,6 +17,8 @@
 @property (nonatomic) NSButton * connectButton;
 @property (nonatomic) NSButton * cancelButton;
 
+@property (nonatomic) NSProgressIndicator * progressIndicator;
+
 @end
 
 #define kRecentlyConnectHost @"kRecentlyConnectHost"
@@ -54,6 +56,11 @@
     _cancelButton.frame = CGRectMake(220, 140, 100, 30);
     
     [self.view addSubview:self.cancelButton];
+    
+    self.progressIndicator.frame = CGRectMake(170, 240, 60, 30);
+    self.progressIndicator.hidden = YES;
+    self.progressIndicator.style = NSProgressIndicatorStyleSpinning;
+    [self.view addSubview:self.progressIndicator];
 }
 
 -(void)viewDidLayout{
@@ -62,12 +69,20 @@
 
 -(IBAction)didTapOk:(id)sender{
     NSString * host = self.hostTextField.stringValue;
-    NSUInteger port = self.portTextField.stringValue.integerValue;
+//    NSUInteger port = self.portTextField.stringValue.integerValue;
+    
+    if (!self.progressIndicator.hidden) {
+        return;
+    }
     
     if (host) {
+        [self.progressIndicator startAnimation:nil];
+        self.progressIndicator.hidden = NO;
+        
         [[NSUserDefaults standardUserDefaults] setObject:host forKey:kRecentlyConnectHost];
         
         [[NCRemoteManager sharedManager] connectToServerHost:host completion:^(BOOL result, NSError * _Nonnull error) {
+            self.progressIndicator.hidden = YES;
             if (error) {
                 NSAlert * alert = [NSAlert alertWithError:error];
                 [alert addButtonWithTitle:@"确定"];
@@ -85,6 +100,14 @@
 
 -(IBAction)didTapCancel:(id)sender{
     [self dismissViewController:self];
+}
+
+
+-(NSProgressIndicator*)progressIndicator{
+    if (!_progressIndicator) {
+        _progressIndicator = [[NSProgressIndicator alloc] init];
+    }
+    return _progressIndicator;
 }
 
 @end

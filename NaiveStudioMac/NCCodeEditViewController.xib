@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NCCodeEditViewController">
             <connections>
-                <outlet property="backButton" destination="yZw-hf-EHa" id="dcj-Vc-DKv"/>
                 <outlet property="clearButton" destination="cbX-Ak-5NL" id="teH-Zz-4eF"/>
-                <outlet property="networkStatusTextField" destination="g4U-6F-2sx" id="x2C-Q0-g1S"/>
                 <outlet property="outputView" destination="6LY-Hs-SbA" id="RX6-Bx-Brz"/>
                 <outlet property="runButton" destination="HyC-qb-kyq" id="keO-S4-ZgZ"/>
                 <outlet property="saveButton" destination="tuA-fr-Kil" id="Bq1-Wa-4QP"/>
@@ -24,90 +23,53 @@
             <rect key="frame" x="0.0" y="0.0" width="1000" height="800"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-WP-Nk2">
-                    <rect key="frame" x="34" y="322" width="933" height="372"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="Ijh-JF-BE2">
-                        <rect key="frame" x="0.0" y="0.0" width="933" height="372"/>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-WP-Nk2">
+                    <rect key="frame" x="34" y="378" width="932" height="379"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Ijh-JF-BE2">
+                        <rect key="frame" x="0.0" y="0.0" width="932" height="379"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsUndo="YES" spellingCorrection="YES" smartInsertDelete="YES" id="cpv-5z-vqv">
-                                <rect key="frame" x="0.0" y="0.0" width="933" height="372"/>
+                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsUndo="YES" spellingCorrection="YES" smartInsertDelete="YES" id="cpv-5z-vqv">
+                                <rect key="frame" x="0.0" y="0.0" width="932" height="379"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="933" height="372"/>
+                                <size key="minSize" width="932" height="379"/>
                                 <size key="maxSize" width="1000" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
                         </subviews>
                     </clipView>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="379" id="ZM6-I1-wZb"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="j0v-3e-fOr">
+                        <rect key="frame" x="-100" y="-100" width="933" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="DmU-GC-Prw">
-                        <rect key="frame" x="917" y="0.0" width="16" height="372"/>
+                        <rect key="frame" x="916" y="0.0" width="16" height="379"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNW-DR-q5A">
-                    <rect key="frame" x="400" y="751" width="200" height="49"/>
-                    <autoresizingMask key="autoresizingMask"/>
+                <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNW-DR-q5A">
+                    <rect key="frame" x="400" y="756" width="202" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Wry-06-EVe"/>
+                        <constraint firstAttribute="height" constant="40" id="z9W-aX-uPy"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" drawsBackground="YES" id="7LC-Pn-K1i">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g4U-6F-2sx">
-                    <rect key="frame" x="599" y="751" width="368" height="49"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Wwt-jU-98d">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HyC-qb-kyq" customClass="SYFlatButton">
-                    <rect key="frame" x="34" y="709" width="100" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title="run" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fff-vT-5Tk">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="momentary" value="YES"/>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
-                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightColor">
-                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="didTapCompile:" target="-2" id="u2Y-VZ-K6C"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yZw-hf-EHa" customClass="SYFlatButton">
-                    <rect key="frame" x="33.5" y="764" width="101" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" title="back" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8ds-4X-jTl">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="momentary" value="YES"/>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
-                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightColor">
-                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="didTapClose:" target="-2" id="9pA-aj-jYh"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tuA-fr-Kil" customClass="SYFlatButton">
-                    <rect key="frame" x="163" y="709" width="101" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tuA-fr-Kil" customClass="SYFlatButton">
+                    <rect key="frame" x="163" y="765" width="101" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="101" id="0R6-SK-H6K"/>
+                        <constraint firstAttribute="height" constant="25" id="Dhp-ds-asJ"/>
+                    </constraints>
                     <buttonCell key="cell" type="square" title="save" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1Cd-Cx-Uy8">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -125,32 +87,38 @@
                         <action selector="didTapSave:" target="-2" id="8xc-wt-HB8"/>
                     </connections>
                 </button>
-                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-aX-HcT">
-                    <rect key="frame" x="34" y="31" width="933" height="269"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="ise-zP-wP2">
-                        <rect key="frame" x="0.0" y="0.0" width="933" height="269"/>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-aX-HcT">
+                    <rect key="frame" x="34" y="0.0" width="932" height="336"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ise-zP-wP2">
+                        <rect key="frame" x="0.0" y="0.0" width="932" height="336"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView ambiguous="YES" editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="6LY-Hs-SbA">
-                                <rect key="frame" x="0.0" y="0.0" width="933" height="269"/>
+                            <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="6LY-Hs-SbA">
+                                <rect key="frame" x="0.0" y="0.0" width="932" height="336"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="933" height="269"/>
+                                <size key="minSize" width="932" height="336"/>
                                 <size key="maxSize" width="1000" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
                         </subviews>
                     </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="KME-vs-pJZ">
+                        <rect key="frame" x="-100" y="-100" width="933" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="9yE-te-Ydo">
-                        <rect key="frame" x="917" y="0.0" width="16" height="269"/>
+                        <rect key="frame" x="916" y="0.0" width="16" height="336"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbX-Ak-5NL" customClass="SYFlatButton">
-                    <rect key="frame" x="289" y="709" width="100" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cbX-Ak-5NL" customClass="SYFlatButton">
+                    <rect key="frame" x="34" y="344" width="100" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="3gT-ae-wHr"/>
+                        <constraint firstAttribute="height" constant="25" id="Y4c-Pw-4fK"/>
+                    </constraints>
                     <buttonCell key="cell" type="square" title="clear" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JFg-S2-gxq">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -168,7 +136,48 @@
                         <action selector="didTapClear:" target="-2" id="fWx-vK-GDq"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HyC-qb-kyq" customClass="SYFlatButton">
+                    <rect key="frame" x="34" y="765" width="100" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="4uP-3P-YLE"/>
+                        <constraint firstAttribute="height" constant="25" id="x4i-1x-OKQ"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" title="run!" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fff-vT-5Tk">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="momentary" value="YES"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightColor">
+                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTapCompile:" target="-2" id="u2Y-VZ-K6C"/>
+                    </connections>
+                </button>
             </subviews>
+            <constraints>
+                <constraint firstItem="tuA-fr-Kil" firstAttribute="leading" secondItem="HyC-qb-kyq" secondAttribute="trailing" constant="29" id="3uX-8b-T1x"/>
+                <constraint firstItem="h6B-aX-HcT" firstAttribute="top" secondItem="cbX-Ak-5NL" secondAttribute="bottom" constant="8" id="Brd-to-vQ0"/>
+                <constraint firstItem="cbX-Ak-5NL" firstAttribute="top" secondItem="cKw-WP-Nk2" secondAttribute="bottom" constant="9" id="CaR-k3-8aP"/>
+                <constraint firstItem="XNW-DR-q5A" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="Dhd-Zy-8hE"/>
+                <constraint firstItem="cKw-WP-Nk2" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="EEp-PP-Iur"/>
+                <constraint firstItem="HyC-qb-kyq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="Mjv-vS-5w6"/>
+                <constraint firstItem="cbX-Ak-5NL" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="NFG-iN-mxE"/>
+                <constraint firstItem="cKw-WP-Nk2" firstAttribute="top" secondItem="HyC-qb-kyq" secondAttribute="bottom" constant="8" id="Wnm-SV-h2y"/>
+                <constraint firstItem="h6B-aX-HcT" firstAttribute="width" secondItem="cpv-5z-vqv" secondAttribute="width" id="XWR-fG-aaI"/>
+                <constraint firstItem="tuA-fr-Kil" firstAttribute="centerY" secondItem="HyC-qb-kyq" secondAttribute="centerY" id="gw4-hN-Ose"/>
+                <constraint firstAttribute="bottom" secondItem="h6B-aX-HcT" secondAttribute="bottom" id="kia-1g-n0p"/>
+                <constraint firstAttribute="trailing" secondItem="cKw-WP-Nk2" secondAttribute="trailing" constant="34" id="kzH-2l-hIC"/>
+                <constraint firstItem="HyC-qb-kyq" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="n1j-0c-a0K"/>
+                <constraint firstItem="h6B-aX-HcT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="uul-cT-9ix"/>
+                <constraint firstItem="XNW-DR-q5A" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="xdR-7j-2Ce"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
         </customView>
     </objects>
 </document>
