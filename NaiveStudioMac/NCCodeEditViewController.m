@@ -172,9 +172,17 @@
             //        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
             
             NSString *content = response[@"content"];
-            NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
-            [weakSelf.outputView.textStorage appendAttributedString:attrStr];
-            [weakSelf.outputView scrollToEndOfDocument:nil];
+            NSNumber *type = response[@"contentType"];
+            if (type.intValue == 0) {
+                NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
+                [weakSelf.outputView.textStorage appendAttributedString:attrStr];
+                [weakSelf.outputView scrollToEndOfDocument:nil];
+            } else if (type.intValue == 1) {
+                NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
+                [weakSelf.textView.textStorage appendAttributedString:attrStr];
+                [weakSelf.textView scrollToEndOfDocument:nil];
+            }
+            
             
             if (!error) {
                 weakSelf.lockButton.title = kLockButtonTitleUnlock;
