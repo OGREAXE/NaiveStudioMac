@@ -110,13 +110,17 @@
 -(void)didReceivePrintNotification:(NSNotification*)notification{
     NSString * str = notification.object;
     
-    self.outputView.string = [[[self.outputView.string stringByAppendingString:str]stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"] stringByAppendingString:@"\n"];
+    self.outputView.string = [[[self.outputView.string stringByAppendingString:str]
+                               stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"]
+                              stringByAppendingString:@"\n"];
 }
 
 -(void)didReceiveLogNotification:(NSNotification*)notification{
     NSString * str = notification.object;
     
-    self.outputView.string = [[[self.outputView.string stringByAppendingString:str]stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"] stringByAppendingString:@"\n"];
+    self.outputView.string = [[[self.outputView.string stringByAppendingString:str]
+                               stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"]
+                              stringByAppendingString:@"\n"];
 }
 
 -(IBAction)didTapRun:(id)sender{
@@ -127,13 +131,7 @@
     
     __weak typeof(self) weakSelf = self;
     [[NCRemoteManager sharedManager] sendCommandText:codeText executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
-        //        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
-        
-        NSString *content = response[@"content"];
-        
-        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
-        [weakSelf.outputView.textStorage appendAttributedString:attrStr];
-        [weakSelf.outputView scrollToEndOfDocument:nil];
+        [weakSelf commonShowResponse:response];
     }];
     
 }
@@ -171,18 +169,7 @@
         [[NCRemoteManager sharedManager] sendCommandText:@"lock" executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
             //        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
             
-            NSString *content = response[@"content"];
-            NSNumber *type = response[@"contentType"];
-            if (type.intValue == 0) {
-                NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
-                [weakSelf.outputView.textStorage appendAttributedString:attrStr];
-                [weakSelf.outputView scrollToEndOfDocument:nil];
-            } else if (type.intValue == 1) {
-                NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
-                [weakSelf.textView.textStorage appendAttributedString:attrStr];
-                [weakSelf.textView scrollToEndOfDocument:nil];
-            }
-            
+            [weakSelf commonShowResponse:response];
             
             if (!error) {
                 weakSelf.lockButton.title = kLockButtonTitleUnlock;
@@ -191,18 +178,28 @@
     } else {
         [[NCRemoteManager sharedManager] sendCommandText:@"unlock" executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
             //        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
-            NSString *content = response[@"content"];
-            NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
-            [weakSelf.outputView.textStorage appendAttributedString:attrStr];
-            [weakSelf.outputView scrollToEndOfDocument:nil];
+            [weakSelf commonShowResponse:response];
             
             if (!error) {
                 weakSelf.lockButton.title = kLockButtonTitleLock;
             }
         }];
     }
+}
+
+- (void)commonShowResponse:(id)response {
+    NSString *content = response[@"content"];
+    NSNumber *type = response[@"contentType"];
     
-    
+    if (type.intValue == 0) {
+        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
+        [self.outputView.textStorage appendAttributedString:attrStr];
+        [self.outputView scrollToEndOfDocument:nil];
+    } else if (type.intValue == 1) {
+        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
+        [self.textView.textStorage appendAttributedString:attrStr];
+        [self.textView scrollToEndOfDocument:nil];
+    }
 }
 
 -(IBAction)didTapClear:(id)sender{
