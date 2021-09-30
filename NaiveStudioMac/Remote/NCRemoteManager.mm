@@ -161,7 +161,12 @@ static NCRemoteManager *_instance = nil;
                 if (self.commandExecutionHandler) {
                     NSString * str = ncData.string;
                     if (str) {
-                        self.commandExecutionHandler(str, nil);
+                        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+                        
+                        NSError *err = nil;
+                        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                        
+                        self.commandExecutionHandler(result, nil);
     //                    self.commandExecutionHandler = nil;
                     }
                 }

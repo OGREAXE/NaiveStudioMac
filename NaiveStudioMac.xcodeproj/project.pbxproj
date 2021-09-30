@@ -15,7 +15,7 @@
 		F366D8CA21E7292D001824AE /* NCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D87A21E7292A001824AE /* NCMainViewController.m */; };
 		F366D8CB21E7292D001824AE /* NaiveStudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D87B21E7292A001824AE /* NaiveStudio.mm */; };
 		F366D8CC21E7292D001824AE /* NCAddNewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D87C21E7292A001824AE /* NCAddNewFileViewController.m */; };
-		F366D8CE21E7292D001824AE /* NCInterpreterController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D88021E7292B001824AE /* NCInterpreterController.mm */; };
+		F366D8CE21E7292D001824AE /* NCScriptInterpretor.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D88021E7292B001824AE /* NCScriptInterpretor.mm */; };
 		F366D8D021E7292D001824AE /* NCRemoteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D89A21E7292B001824AE /* NCRemoteManager.mm */; };
 		F366D8D221E7292D001824AE /* NSView+Avatar.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D8A121E7292B001824AE /* NSView+Avatar.m */; };
 		F366D8D321E7292D001824AE /* NCEditorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F366D8AD21E7292B001824AE /* NCEditorViewController.mm */; };
@@ -79,12 +79,12 @@
 		F366D87A21E7292A001824AE /* NCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMainViewController.m; sourceTree = "<group>"; };
 		F366D87B21E7292A001824AE /* NaiveStudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NaiveStudio.mm; sourceTree = "<group>"; };
 		F366D87C21E7292A001824AE /* NCAddNewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCAddNewFileViewController.m; sourceTree = "<group>"; };
-		F366D88021E7292B001824AE /* NCInterpreterController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCInterpreterController.mm; sourceTree = "<group>"; };
+		F366D88021E7292B001824AE /* NCScriptInterpretor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCScriptInterpretor.mm; sourceTree = "<group>"; };
 		F366D89421E7292B001824AE /* NCProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCProjectTableViewCell.h; sourceTree = "<group>"; };
 		F366D89521E7292B001824AE /* NCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMainViewController.h; sourceTree = "<group>"; };
 		F366D89621E7292B001824AE /* NCProjectContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCProjectContentViewController.h; sourceTree = "<group>"; };
 		F366D89721E7292B001824AE /* NCCodeTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCCodeTemplate.h; sourceTree = "<group>"; };
-		F366D89821E7292B001824AE /* NCInterpreterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCInterpreterController.h; sourceTree = "<group>"; };
+		F366D89821E7292B001824AE /* NCScriptInterpretor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCScriptInterpretor.h; sourceTree = "<group>"; };
 		F366D89A21E7292B001824AE /* NCRemoteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NCRemoteManager.mm; sourceTree = "<group>"; };
 		F366D89E21E7292B001824AE /* NCRemoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCRemoteManager.h; sourceTree = "<group>"; };
 		F366D8A021E7292B001824AE /* NSView+Avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Avatar.h"; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 				F366D8BF21E7292C001824AE /* NCDataSource.m */,
 				F366D8BA21E7292C001824AE /* NCEditorViewController.h */,
 				F366D8AD21E7292B001824AE /* NCEditorViewController.mm */,
-				F366D89821E7292B001824AE /* NCInterpreterController.h */,
-				F366D88021E7292B001824AE /* NCInterpreterController.mm */,
+				F366D89821E7292B001824AE /* NCScriptInterpretor.h */,
+				F366D88021E7292B001824AE /* NCScriptInterpretor.mm */,
 				F366D8B021E7292B001824AE /* NCMainViewCell.h */,
 				F366D8B921E7292C001824AE /* NCMainViewCell.m */,
 				F366D89521E7292B001824AE /* NCMainViewController.h */,
@@ -546,7 +546,7 @@
 				F366D8D721E7292D001824AE /* NSTestManager.m in Sources */,
 				F366D8E021E7292D001824AE /* NCTextManager.mm in Sources */,
 				F366D8E121E7292D001824AE /* NCCodeTemplate.m in Sources */,
-				F366D8CE21E7292D001824AE /* NCInterpreterController.mm in Sources */,
+				F366D8CE21E7292D001824AE /* NCScriptInterpretor.mm in Sources */,
 				F366D8CB21E7292D001824AE /* NaiveStudio.mm in Sources */,
 				F3EAAC7521ED85CA00D7CBA4 /* DDContextFilterLogFormatter.m in Sources */,
 				F366D8DB21E7292D001824AE /* NCProjectTableViewCell.m in Sources */,

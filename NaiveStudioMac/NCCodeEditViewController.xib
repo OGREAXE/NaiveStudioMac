@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="NCCodeEditViewController">
             <connections>
                 <outlet property="clearButton" destination="cbX-Ak-5NL" id="teH-Zz-4eF"/>
+                <outlet property="lockButton" destination="r6p-wy-KUf" id="RUg-VF-3Ps"/>
                 <outlet property="outputView" destination="6LY-Hs-SbA" id="RX6-Bx-Brz"/>
                 <outlet property="runButton" destination="HyC-qb-kyq" id="keO-S4-ZgZ"/>
                 <outlet property="saveButton" destination="tuA-fr-Kil" id="Bq1-Wa-4QP"/>
@@ -24,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-WP-Nk2">
-                    <rect key="frame" x="34" y="378" width="932" height="379"/>
+                    <rect key="frame" x="34" y="368" width="932" height="379"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Ijh-JF-BE2">
                         <rect key="frame" x="0.0" y="0.0" width="932" height="379"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +66,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tuA-fr-Kil" customClass="SYFlatButton">
-                    <rect key="frame" x="163" y="765" width="101" height="25"/>
+                    <rect key="frame" x="163" y="755" width="101" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="101" id="0R6-SK-H6K"/>
                         <constraint firstAttribute="height" constant="25" id="Dhp-ds-asJ"/>
@@ -88,17 +89,17 @@
                     </connections>
                 </button>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6B-aX-HcT">
-                    <rect key="frame" x="34" y="0.0" width="932" height="336"/>
+                    <rect key="frame" x="34" y="0.0" width="932" height="326"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ise-zP-wP2">
-                        <rect key="frame" x="0.0" y="0.0" width="932" height="336"/>
+                        <rect key="frame" x="0.0" y="0.0" width="932" height="326"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="6LY-Hs-SbA">
-                                <rect key="frame" x="0.0" y="0.0" width="932" height="336"/>
+                                <rect key="frame" x="0.0" y="0.0" width="932" height="326"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="932" height="336"/>
+                                <size key="minSize" width="932" height="326"/>
                                 <size key="maxSize" width="1000" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
@@ -109,12 +110,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="9yE-te-Ydo">
-                        <rect key="frame" x="916" y="0.0" width="16" height="336"/>
+                        <rect key="frame" x="916" y="0.0" width="16" height="326"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cbX-Ak-5NL" customClass="SYFlatButton">
-                    <rect key="frame" x="34" y="344" width="100" height="25"/>
+                    <rect key="frame" x="34" y="334" width="100" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="3gT-ae-wHr"/>
                         <constraint firstAttribute="height" constant="25" id="Y4c-Pw-4fK"/>
@@ -137,7 +138,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HyC-qb-kyq" customClass="SYFlatButton">
-                    <rect key="frame" x="34" y="765" width="100" height="25"/>
+                    <rect key="frame" x="34" y="755" width="100" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="4uP-3P-YLE"/>
                         <constraint firstAttribute="height" constant="25" id="x4i-1x-OKQ"/>
@@ -156,7 +157,30 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="didTapCompile:" target="-2" id="u2Y-VZ-K6C"/>
+                        <action selector="didTapRun:" target="-2" id="u2Y-VZ-K6C"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r6p-wy-KUf" customClass="SYFlatButton">
+                    <rect key="frame" x="284" y="755" width="101" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="IJk-D9-Sd1"/>
+                        <constraint firstAttribute="width" constant="101" id="kY0-AY-DAe"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" title="lock" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F9v-HX-YeQ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="momentary" value="YES"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundNormalColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundHighlightColor">
+                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTapLock:" target="-2" id="zDi-fq-8f3"/>
                     </connections>
                 </button>
             </subviews>
@@ -166,14 +190,18 @@
                 <constraint firstItem="cbX-Ak-5NL" firstAttribute="top" secondItem="cKw-WP-Nk2" secondAttribute="bottom" constant="9" id="CaR-k3-8aP"/>
                 <constraint firstItem="XNW-DR-q5A" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="Dhd-Zy-8hE"/>
                 <constraint firstItem="cKw-WP-Nk2" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="EEp-PP-Iur"/>
+                <constraint firstItem="r6p-wy-KUf" firstAttribute="height" secondItem="tuA-fr-Kil" secondAttribute="height" id="GJK-pu-Y5j"/>
+                <constraint firstItem="r6p-wy-KUf" firstAttribute="centerY" secondItem="tuA-fr-Kil" secondAttribute="centerY" id="Ifv-Fh-Y5C"/>
                 <constraint firstItem="HyC-qb-kyq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="Mjv-vS-5w6"/>
                 <constraint firstItem="cbX-Ak-5NL" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="NFG-iN-mxE"/>
                 <constraint firstItem="cKw-WP-Nk2" firstAttribute="top" secondItem="HyC-qb-kyq" secondAttribute="bottom" constant="8" id="Wnm-SV-h2y"/>
                 <constraint firstItem="h6B-aX-HcT" firstAttribute="width" secondItem="cpv-5z-vqv" secondAttribute="width" id="XWR-fG-aaI"/>
+                <constraint firstItem="r6p-wy-KUf" firstAttribute="width" secondItem="tuA-fr-Kil" secondAttribute="width" id="ggS-Dv-SXp"/>
                 <constraint firstItem="tuA-fr-Kil" firstAttribute="centerY" secondItem="HyC-qb-kyq" secondAttribute="centerY" id="gw4-hN-Ose"/>
                 <constraint firstAttribute="bottom" secondItem="h6B-aX-HcT" secondAttribute="bottom" id="kia-1g-n0p"/>
                 <constraint firstAttribute="trailing" secondItem="cKw-WP-Nk2" secondAttribute="trailing" constant="34" id="kzH-2l-hIC"/>
-                <constraint firstItem="HyC-qb-kyq" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="n1j-0c-a0K"/>
+                <constraint firstItem="r6p-wy-KUf" firstAttribute="leading" secondItem="tuA-fr-Kil" secondAttribute="trailing" constant="20" id="l7X-mM-xLY"/>
+                <constraint firstItem="HyC-qb-kyq" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="n1j-0c-a0K"/>
                 <constraint firstItem="h6B-aX-HcT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="34" id="uul-cT-9ix"/>
                 <constraint firstItem="XNW-DR-q5A" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="xdR-7j-2Ce"/>
             </constraints>

@@ -7,7 +7,7 @@
 //
 
 #import "NCEditorViewController.h"
-#import "NCInterpreterController.h"
+#import "NCScriptInterpretor.h"
 #import "NCCodeTemplate.h"
 #import "NCProject.h"
 #import "Common.h"
@@ -104,7 +104,7 @@
 //    self.runButton = [UIButton buttonWithType:UIButtonTypeSystem];
 //    [self.runButton setTitle:@"run" forState:UIControlStateNormal];
 //    [self.runButton addTarget:self action:@selector(didTapCompile:) forControlEvents:UIControlEventTouchUpInside];
-    self.runButton = [NSButton buttonWithTitle:@"run" target:self action:@selector(didTapCompile:)];
+    self.runButton = [NSButton buttonWithTitle:@"run" target:self action:@selector(didTapRun:)];
     [self.inputPanel addSubview:self.runButton];
     
     self.saveButton = [NSButton buttonWithTitle:@"save" target:self action:@selector(didTapSave:)];

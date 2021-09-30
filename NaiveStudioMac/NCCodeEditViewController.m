@@ -7,7 +7,7 @@
 //
 
 #import "NCCodeEditViewController.h"
-#import "NCInterpreterController.h"
+#import "NCScriptInterpretor.h"
 #import "NCCodeTemplate.h"
 #import "NCProject.h"
 #import "Common.h"
@@ -30,6 +30,7 @@
 //buttons
 @property (nonatomic) IBOutlet  NSButton * runButton;
 @property (nonatomic) IBOutlet  NSButton * saveButton;
+@property (nonatomic) IBOutlet  NSButton * lockButton;
 @property (nonatomic) IBOutlet  NSButton * clearButton;
 @property (nonatomic) IBOutlet  NSButton * backButton;
 
@@ -118,7 +119,7 @@
     self.outputView.string = [[[self.outputView.string stringByAppendingString:str]stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"] stringByAppendingString:@"\n"];
 }
 
--(IBAction)didTapCompile:(id)sender{
+-(IBAction)didTapRun:(id)sender{
     [self saveCurrentContent];
     
     NSString * codeText = self.textView.string;
@@ -127,7 +128,10 @@
     __weak typeof(self) weakSelf = self;
     [[NCRemoteManager sharedManager] sendCommandText:codeText executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
         //        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
-        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", response]];
+        
+        NSString *content = response[@"content"];
+        
+        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
         [weakSelf.outputView.textStorage appendAttributedString:attrStr];
         [weakSelf.outputView scrollToEndOfDocument:nil];
     }];
@@ -154,6 +158,43 @@
 //    self.view.window.contentViewController = controller;
     
     self.view.window.contentViewController = self.lastViewController;
+}
+
+#define kLockButtonTitleLock @"lock"
+#define kLockButtonTitleUnlock @"unlock"
+
+-(IBAction)didTapLock:(id)sender{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    if ([self.lockButton.title isEqualToString:kLockButtonTitleLock]) {
+        [[NCRemoteManager sharedManager] sendCommandText:@"lock" executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
+            //        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
+            
+            NSString *content = response[@"content"];
+            NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
+            [weakSelf.outputView.textStorage appendAttributedString:attrStr];
+            [weakSelf.outputView scrollToEndOfDocument:nil];
+            
+            if (!error) {
+                weakSelf.lockButton.title = kLockButtonTitleUnlock;
+            }
+        }];
+    } else {
+        [[NCRemoteManager sharedManager] sendCommandText:@"unlock" executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
+            //        weakSelf.outputView.string = [NSString stringWithFormat:@"%@\n%@",weakSelf.outputView.string,response];
+            NSString *content = response[@"content"];
+            NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
+            [weakSelf.outputView.textStorage appendAttributedString:attrStr];
+            [weakSelf.outputView scrollToEndOfDocument:nil];
+            
+            if (!error) {
+                weakSelf.lockButton.title = kLockButtonTitleLock;
+            }
+        }];
+    }
+    
+    
 }
 
 -(IBAction)didTapClear:(id)sender{
