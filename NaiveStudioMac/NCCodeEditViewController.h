@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NCProjectManager.h"
-#import "NCScriptInterpretor.h"
+#import "NCScriptInterpreter.h"
 #import "Common.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NCInterpretorMode mode;
 
-@property (nonatomic) NCScriptInterpretor * interpreter;
+@property (nonatomic) NCScriptInterpreter * interpreter;
 
 @property (nonatomic) NSViewController * lastViewController;
 

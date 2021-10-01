@@ -62,7 +62,7 @@
 
 @property  (nonatomic) NSTextField * networkStatusTextField;
 
-@property (nonatomic) NCScriptInterpretor * interpreter;
+@property (nonatomic) NCScriptInterpreter * interpreter;
 
 @property (nonatomic) NSViewController * rightViewController;
 
@@ -118,7 +118,7 @@
     NSClickGestureRecognizer *click = [[NSClickGestureRecognizer alloc] initWithTarget:self action:@selector(networkTextFieldClicked)];
     [self.networkStatusTextField addGestureRecognizer:click];
     
-    self.interpreter = [[NCScriptInterpretor alloc] init];
+    self.interpreter = [[NCScriptInterpreter alloc] init];
     self.interpreter.project = self.project;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionChanged) name:kConnectionStatusChangedNotificationName object:nil];

@@ -8,7 +8,7 @@
 
 #import <AppKit/AppKit.h>
 #import "NCProjectManager.h"
-#import "NCScriptInterpretor.h"
+#import "NCScriptInterpreter.h"
 #import "Common.h"
 
 @interface NCEditorViewController : NSViewController
@@ -19,7 +19,7 @@
 
 @property (nonatomic) NCInterpretorMode mode;
 
-@property (nonatomic) NCScriptInterpretor * interpreter;
+@property (nonatomic) NCScriptInterpreter * interpreter;
 
 @end
 

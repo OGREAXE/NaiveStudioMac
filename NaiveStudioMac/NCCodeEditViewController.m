@@ -7,7 +7,7 @@
 //
 
 #import "NCCodeEditViewController.h"
-#import "NCScriptInterpretor.h"
+#import "NCScriptInterpreter.h"
 #import "NCCodeTemplate.h"
 #import "NCProject.h"
 #import "Common.h"
