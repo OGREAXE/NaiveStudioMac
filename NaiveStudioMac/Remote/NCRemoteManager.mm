@@ -12,7 +12,7 @@
 
 #define LOG_REMOTE(fmt, ...) NSLog(fmt,##__VA_ARGS__)
 
-typedef void (^CommandExecutionHandler)(id response, NSError *error);
+typedef void (^ResponseHandler)(id response, NSError *error);
 
 typedef void (^ConnectionHandler)(BOOL result, NSError *error);
 
@@ -20,7 +20,7 @@ typedef void (^ConnectionHandler)(BOOL result, NSError *error);
 
 @property (nonatomic) GCDAsyncSocket * socket;
 
-@property (nonatomic) CommandExecutionHandler commandExecutionHandler;
+@property (nonatomic) ResponseHandler responseHandler;
 
 @property (nonatomic) ConnectionHandler connectionHandler;
 
@@ -67,7 +67,7 @@ static NCRemoteManager *_instance = nil;
     
     [self.socket writeData:dataWithDelimiter withTimeout:10 tag:TAG_TEXT];
     
-    self.commandExecutionHandler = executionResultHandler;
+    self.responseHandler = executionResultHandler;
     
 //    [self.socket readDataWithTimeout:- 1 tag:0];
     [self.socket readDataToData:DATA_FRAGMENT_DELIMITER withTimeout:-1 tag:0];
@@ -85,8 +85,7 @@ static NCRemoteManager *_instance = nil;
             completionHandler(NO, error);
         }
         return;
-    }
-    else{
+    } else {
         self.connectionHandler = completionHandler;
     }
 }
@@ -158,7 +157,7 @@ static NCRemoteManager *_instance = nil;
             {
                 LOG_REMOTE(@"didReadData:**************\n%@",ncData.string);
                 
-                if (self.commandExecutionHandler) {
+                if (self.responseHandler) {
                     NSString * str = ncData.string;
                     if (str) {
                         NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -166,7 +165,7 @@ static NCRemoteManager *_instance = nil;
                         NSError *err = nil;
                         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
                         
-                        self.commandExecutionHandler(result, nil);
+                        self.responseHandler(result, nil);
     //                    self.commandExecutionHandler = nil;
                     }
                 }

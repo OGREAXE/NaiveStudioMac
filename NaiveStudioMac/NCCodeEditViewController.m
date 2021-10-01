@@ -191,12 +191,19 @@
     NSString *content = response[@"content"];
     NSNumber *type = response[@"contentType"];
     
+    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
+    
+    NSString *colorHexStr = response[@"textColor"];
+    if (colorHexStr) {
+        NSColor *textColor = colorWithRGBHexString(colorHexStr);
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:textColor}
+                         range:NSMakeRange(0, attrStr.length)];
+    }
+    
     if (type.intValue == 0) {
-        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
         [self.outputView.textStorage appendAttributedString:attrStr];
         [self.outputView scrollToEndOfDocument:nil];
     } else if (type.intValue == 1) {
-        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", content]];
         [self.textView.textStorage appendAttributedString:attrStr];
         [self.textView scrollToEndOfDocument:nil];
     }
