@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NCMainViewController.h"
+#import "NCRemoteManager.h"
 
 @interface AppDelegate ()
 @property (nonatomic) NSWindowController * mainWinController;
@@ -29,8 +30,24 @@
     
     initialViewController.mainWindowController = _mainWinController;
     [_mainWindow center];
+    
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(onNaiveCodeFromXcode:) name:@"NaiveCodeFromXcode" object:nil];
 }
 
+#pragma mark patch 10.220.15.0
+- (void)onNaiveCodeFromXcode:(NSNotification *)not {
+    NSLog(@"onNaiveCodeFromXcode %@", not.object);
+    
+    NSString *patchText = not.object;
+    
+    if (!patchText.length)return;
+    
+    NSString *commandText = [NSString stringWithFormat:@"%@%@", @"?NAIVE_PATCH?", patchText];
+    
+    [[NCRemoteManager sharedManager] sendCommandText:commandText  executionResult:^(id  _Nonnull response, NSError * _Nonnull error) {
+            
+        }];
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application

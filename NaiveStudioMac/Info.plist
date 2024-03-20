@@ -28,5 +28,14 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+    <key>XCService</key>
+    <dict>
+    <key>JoinExistingSession</key>
+    <true/>
+    <key> ServiceType</key>
+    <string>Application</string>
+    <key>RunLoopType</key>
+    <string>NSRunLoop</string>
+    </dict>
 </dict>
 </plist>

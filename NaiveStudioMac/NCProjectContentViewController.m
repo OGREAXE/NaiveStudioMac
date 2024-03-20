@@ -207,6 +207,7 @@
     // Set the stringValue of the cell's text field to the nameArray value at row
     NCSourceFile * file  = [self.project.sourceFiles objectAtIndex:row];
     result.textField.stringValue = file.filename;
+    result.textField.editable = NO;
     
     // Return the result
     return result;
@@ -222,6 +223,7 @@
     
     NCSourceFile * file  = [self.project.sourceFiles objectAtIndex:row];
     rowView.textField.stringValue = file.filename;
+    rowView.textField.editable = NO;
     
     return rowView;
 }
